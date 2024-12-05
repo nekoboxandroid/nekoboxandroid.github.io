@@ -2,13 +2,12 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://nekoboxandroid.github.io" />
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-21493.htm" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <title>2024-10归档 - Nekobox Android免费节点分享站</title>
-        <meta name="keywords" content="2024-10归档" />
-        <meta name="description" content="2024-10归档" />
+    <title>Java8新特性之Instant详解</title>
+        <meta name="description" content="计算机存储的当前时间，本质上只是一个不断递增的整数。Java提供的System.currentTimeMillis()返回的就是以毫秒表示的当前时间戳。 这个当前时间戳在java.time中以Inst" />
         <link rel="icon" href="__ADDON__/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
@@ -29,7 +28,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="category">
+<body data-page="detail">
         <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -73,9 +72,9 @@
             <div class="container">
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>2024-10 归档</h1>
+                        <h1>Java8新特性之Instant详解</h1>
                         <p>
-                            <a href="/">首页</a> / <span>2024-10 归档</span>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
                         </p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
@@ -92,27 +91,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="xcblog-blog-list">
-                                                <div class="row item xcblog-blog-item" data-date="2024-10-01">
-                            <div class="col-md-3">
-                                <a href="/free-nodes/2024-10-1-nekobox-node-windows.htm" class="xcblog-blog-url">
-                                    <img src="/uploads/20240804/9379e278b9ce3feba3668a7f4947f899.webp" class="rounded img-fluid d-block mx-auto" alt="10月1日 | Nekobox Android每天更新18.1M/S免费节点订阅链接">
-                                </a>
-                            </div>
-                            <div class="right-text col-md-9">
-                                <div class="left-heading">
-                                    <a href="/free-nodes/2024-10-1-nekobox-node-windows.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">10月1日 | Nekobox Android每天更新18.1M/S免费节点订阅链接</h3>
-                                    </a>
+                                      				  				  				<div id="content_views" class="htmledit_views"> <p>计算机存储的当前时间，本质上只是一个不断递增的整数。Java提供的<code>System.currentTimeMillis()</code>返回的就是以毫秒表示的当前时间戳。</p> <p>这个当前时间戳在<code>java.time</code>中以<code>Instant</code>类型表示，我们用<code>Instant.now()</code>获取当前时间戳，效果和<code>System.currentTimeMillis()</code>类似：</p> <pre><code class="language-java">public class Main {     public static void main(String[] args) {         Instant now = Instant.now();         System.out.println(now.getEpochSecond()); // 秒  1568568760         System.out.println(now.toEpochMilli()); // 毫秒  1568568760316     } }</code></pre> <p>实际上，<code>Instant</code>内部只有两个核心字段：</p> <pre><code class="language-java">public final class Instant implements ... {     private final long seconds;     private final int nanos; }</code></pre> <p>一个是以秒为单位的时间戳，一个是更精确的纳秒精度。它和<code>System.currentTimeMillis()</code>返回的<code>long</code>相比，只是多了更高精度的纳秒。</p> <p>既然<code>Instant</code>就是时间戳，那么，给它附加上一个时区，就可以创建出<code>ZonedDateTime</code>：</p> <pre><code class="language-java">// 以指定时间戳创建Instant: Instant ins = Instant.ofEpochSecond(1568568760); ZonedDateTime zdt = ins.atZone(ZoneId.systemDefault()); System.out.println(zdt); // 2019-09-16T01:32:40+08:00[Asia/Shanghai]</code></pre> <p>可见，对于某一个时间戳，给它关联上指定的<code>ZoneId</code>，就得到了<code>ZonedDateTime</code>，继而可以获得了对应时区的<code>LocalDateTime</code>。</p> <p>所以，<code>LocalDateTime</code>，<code>ZoneId</code>，<code>Instant</code>，<code>ZonedDateTime</code>和<code>long</code>都可以互相转换：</p> <pre><code class="language-java">┌─────────────┐ │LocalDateTime│────┐ └─────────────┘    │    ┌─────────────┐                    ├───&gt;│ZonedDateTime│ ┌─────────────┐    │    └─────────────┘ │   ZoneId    │────┘           ▲ └─────────────┘      ┌─────────┴─────────┐                      │                   │                      ▼                   ▼               ┌─────────────┐     ┌─────────────┐               │   Instant   │&lt;───&gt;│    long     │               └─────────────┘     └─────────────┘</code></pre> <p>转换的时候，只需要留意<code>long</code>类型以毫秒还是秒为单位即可。</p> <h3>小结</h3> <p><code>Instant</code>表示高精度时间戳，它可以和<code>ZonedDateTime</code>以及<code>long</code>互相转换。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-21039.htm">腊八节吃什么最适合(腊八节吃什么美食)</a></p>
+                                        <p>下一个：<a href="/news/article-21494.htm">FreeRTOS进阶之空闲任务示例完全解析_操作系统_</a></p>
+                                    </div>
                                 </div>
-                                <div class="left-text">
-                                    <p>这一次的节点更新覆盖了美国、新加坡、欧洲、韩国、日本、加拿大、香港等地区,最高速度可达18.1 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <ul class="pagination"><li><a href="/date/2024-10/page-3.htm">&laquo;</a></li> <li><a href="/date/2024-10/">1</a></li><li><a href="/date/2024-10/page-2.htm">2</a></li><li><a href="/date/2024-10/page-3.htm">3</a></li><li class="active"><span>4</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
-                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
     <div class="panel-heading">
@@ -120,16 +104,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-nekobox-node.htm" title="12月1日 | Nekobox Android每天更新20.1M/S免费节点订阅链接">12月1日 | Nekobox Android每天更新20.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-22-free-high-speed-nodes.htm" title="9月22日 | Nekobox Android每天更新21.3M/S免费节点订阅链接">9月22日 | Nekobox Android每天更新21.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-subscribe-node.htm" title="10月8日 | Nekobox Android每天更新18.7M/S免费节点订阅链接">10月8日 | Nekobox Android每天更新18.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-node-share-links.htm" title="10月26日 | Nekobox Android每天更新21.2M/S免费节点订阅链接">10月26日 | Nekobox Android每天更新21.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-nekobox-node.htm" title="10月14日 | Nekobox Android每天更新20.8M/S免费节点订阅链接">10月14日 | Nekobox Android每天更新20.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-14-free-node-subscribe.htm" title="9月14日 | Nekobox Android每天更新22.7M/S免费节点订阅链接">9月14日 | Nekobox Android每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-23-nekobox-node-windows.htm" title="8月23日 | Nekobox Android每天更新22.8M/S免费节点订阅链接">8月23日 | Nekobox Android每天更新22.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-18-nekobox-node.htm" title="11月18日 | Nekobox Android每天更新18.5M/S免费节点订阅链接">11月18日 | Nekobox Android每天更新18.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-nekobox-node-share.htm" title="11月14日 | Nekobox Android每天更新20.7M/S免费节点订阅链接">11月14日 | Nekobox Android每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-today-nekobox-node.htm" title="9月21日 | Nekobox Android每天更新19M/S免费节点订阅链接">9月21日 | Nekobox Android每天更新19M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-high-speed-nodes.htm" title="11月3日 | Nekobox Android每天更新20.3M/S免费节点订阅链接">11月3日 | Nekobox Android每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19664.htm" title="一个宠物店一年的纯利润（宠物店利润高吗）">一个宠物店一年的纯利润（宠物店利润高吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-nekobox-github.htm" title="11月9日 | Nekobox Android每天更新20.3M/S免费节点订阅链接">11月9日 | Nekobox Android每天更新20.3M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-8-nekobox-github.htm" title="11月8日 | Nekobox Android每天更新22.2M/S免费节点订阅链接">11月8日 | Nekobox Android每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-30-nekobox-node.htm" title="8月30日 | Nekobox Android每天更新22.6M/S免费节点订阅链接">8月30日 | Nekobox Android每天更新22.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-node-subscribe.htm" title="11月10日 | Nekobox Android每天更新19.6M/S免费节点订阅链接">11月10日 | Nekobox Android每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-today-nekobox-node.htm" title="8月12日 | Nekobox Android每天更新21.3M/S免费节点订阅链接">8月12日 | Nekobox Android每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-node-subscribe-links.htm" title="10月10日 | Nekobox Android每天更新19.4M/S免费节点订阅链接">10月10日 | Nekobox Android每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-16-nekobox-github.htm" title="9月16日 | Nekobox Android每天更新18.2M/S免费节点订阅链接">9月16日 | Nekobox Android每天更新18.2M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>

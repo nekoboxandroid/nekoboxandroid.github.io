@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-21494.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>FreeRTOS进阶之空闲任务示例完全解析_操作系统_</title>
+        <meta name="description" content="目录  1.释放内存 2. 处理空闲优先级任务 3.执行空闲任务钩子函数 4.低功耗tickless模式   当RTOS调度器开始工作后，为了保证至少有一个任务在运行，空闲任务被自动创建，占用最低优先" />
+        <link rel="icon" href="__ADDON__/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                                                <a href="/" class="logo"><span>Nekobox Android</span></a>
+                                                
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li><a href="#">关于</a></li>
+                            <li><a href="#">联系</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>FreeRTOS进阶之空闲任务示例完全解析_操作系统_</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img href="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.释放内存</a></li> <li><a href="#_label1" rel="nofollow">2. 处理空闲优先级任务</a></li> <li><a href="#_label2" rel="nofollow">3.执行空闲任务钩子函数</a></li> <li><a href="#_label3" rel="nofollow">4.低功耗tickless模式</a></li> </ul> </div> <p>当RTOS调度器开始工作后，为了保证至少有一个任务在运行，空闲任务被自动创建，占用最低优先级（0优先级）。</p> <div class="ay1code"> <pre class="brush:cpp;">   xReturn = xTaskCreate( prvIdleTask,                           "IDLE",configMINIMAL_STACK_SIZE,                           (void * ) NULL,                           (tskIDLE_PRIORITY | portPRIVILEGE_BIT ),                           &amp;xIdleTaskHandle);</pre> </div> <p>空闲任务是FreeRTOS不可缺少的任务，因为FreeRTOS设计要求必须至少有一个任务处于运行状态。我们来看一下空闲任务要做的工作。</p> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.释放内存</h2> <p>从V9.0版本开始，如果一个任务删除另外一个任务，被删除任务的堆栈和TCB立即释放。如果一个任务删除自己，则任务的堆栈和TCB和以前一样，通过空闲任务删除。所以空闲任务开始就会检查是否有任务删除了自己，如果有的话，空闲任务负责删除这个任务的TCB和堆栈空间。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2. 处理空闲优先级任务</h2> <p>当使用抢占式内核，相同优先级的任务使用时间片方式获得CPU权限。如果有任务与空闲任务共享一个优先级，并且宏configIDLE_SHOULD_YIELD设置为1，那么空闲任务不必等到时间片耗尽再进行任务切换。</p> <p>所以空闲任务检查空闲优先级下的就绪列表中是否有多个任务，有的话则执行任务切换，让用户任务获得CPU权限。</p> <p>宏configIDLE_SHOULD_YIELD控制任务在空闲优先级中的行为。仅在满足下列条件后，才会起作用。</p> <ul> <li>使用抢占式内核调度</li> <li>用户任务使用空闲优先级。</li> </ul> <p>通过时间片共享同一个优先级的多个任务，如果共享的优先级大于空闲优先级，并假设没有更高优先级任务，这些任务应该获得相同的处理器时间。</p> <p>但如果共享空闲优先级时，情况会稍微有些不同。当configIDLE_SHOULD_YIELD为1时，其它共享空闲优先级的用户任务就绪时，空闲任务立刻让出CPU，用户任务运行，这样确保了能最快响应用户任务。处于这种模式下也会有不良效果（取决于你的程序需要），描述如下：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/87f291c0d0fbf08d161860a7ec594387.jpg"></p> <p>图中描述了四个处于空闲优先级的任务，任务A、B和C是用户任务，任务I是空闲任务。上下文切换周期性的发生在T0、T1…T6时刻。当用户任务运行时，空闲任务立刻让出CPU，但是，空闲任务已经消耗了当前时间片中的一定时间。这样的结果就是空闲任务I和用户任务A共享一个时间片。用户任务B和用户任务C因此获得了比用户任务A更多的处理器时间。</p> <p>可以通过下面方法避免：</p> <ul> <li>如果合适的话，将处于空闲优先级的各单独的任务放置到空闲钩子函数中；</li> <li>创建的用户任务优先级大于空闲优先级；</li> <li>设置IDLE_SHOULD_YIELD为0；</li> </ul> <p>设置configIDLE_SHOULD_YIELD为0将阻止空闲任务为用户任务让出CPU，直到空闲任务的时间片结束。这确保所有处在空闲优先级的任务分配到相同多的处理器时间，但是，这是以分配给空闲任务更高比例的处理器时间为代价的。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.执行空闲任务钩子函数</h2> <p>空闲任务钩子是一个函数，这个函数由用户来实现，RTOS规定了函数的名字和参数，这个函数在每个空闲任务周期都会被调用。</p> <p>要创建一个空闲钩子：</p> <ul> <li>设置FreeRTOSConfig.h 文件中的configUSE_IDLE_HOOK 为1；</li> <li>定义一个函数，函数名和参数如下所示：</li> </ul> <div class="ay1code"> <pre class="brush:cpp;">void vApplicationIdleHook(void ); </pre> </div> <p>这个钩子函数不可以调用会引起空闲任务阻塞的API函数（例如：vTaskDelay()、带有阻塞时间的队列和信号量函数），在钩子函数内部使用协程是被允许的。</p> <p>使用空闲钩子函数设置CPU进入省电模式是很常见的。</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.低功耗tickless模式</h2> <p>通常情况下，FreeRTOS回调空闲任务钩子函数（需要设计者自己实现），在空闲任务钩子函数中设置微处理器进入低功耗模式来达到省电的目的。因为系统要响应系统节拍中断事件，因此使用这种方法会周期性的退出、再进入低功耗状态。如果系统节拍中断频率过快，则大部分电能和CPU时间会消耗在进入和退出低功耗状态上。</p> <p>FreeRTOS的tickless空闲模式会在空闲周期时停止周期性系统节拍中断。停止周期性系统节拍中断可以使微控制器长时间处于低功耗模式。移植层需要配置外部唤醒中断，当唤醒事件到来时，将微控制器从低功耗模式唤醒。</p> <p>微控制器唤醒后，会重新使能系统节拍中断。由于微控制器在进入低功耗后，系统节拍计数器是停止的，但我们又需要知道这段时间能折算成多少次系统节拍中断周期，这就需要有一个不受低功耗影响的外部时钟源，即微处理器处于低功耗模式时它也在计时的，这样在重启系统节拍中断时就可以根据这个外部计时器计算出一个调整值并写入RTOS 系统节拍计数器变量中。</p> <p>空闲任务的源代码如下所示，其中宏portTASK_FUNCTION翻译出来为：</p> <blockquote> <p>void prvIdleTask(void * pvParameters)。</p> </blockquote> <div class="ay1code"> <pre class="brush:cpp;">static portTASK_FUNCTION( prvIdleTask,pvParameters ){ /*防止编译器警告 */ (void ) pvParameters; for(;; ) { /*检查是否有任务删除了自己,如果有的话,空闲任务负责删除这个任务的TCB和堆栈空间 */ prvCheckTasksWaitingTermination(); #if( configUSE_PREEMPTION == 0 ) {/*如果我们没有使用抢占式调度,我们会强制任务切换,看看是否有其它任务变得有效.如果使用抢占式调度,是不需要这样的,因为任务变得有效后会抢占空闲任务.*/taskYIELD(); } #endif/* configUSE_PREEMPTION */ #if( ( configUSE_PREEMPTION == 1 ) &amp;&amp; ( configIDLE_SHOULD_YIELD == 1 ) ) {/* 当使用抢占式内核,相同优先级的任务使用时间片方式获得CPU权限.如果有任务与空闲任务共享一个优先级,那么空闲任务不必等到时间片耗尽再进行任务切换.如果空闲优先级下的就绪列表中有多个任务,则执行用户任务*/if(listCURRENT_LIST_LENGTH( &amp;( pxReadyTasksLists[ tskIDLE_PRIORITY ] ) ) &gt;( UBaseType_t ) 1 ){ taskYIELD();} } #endif/* ( ( configUSE_PREEMPTION == 1 ) &amp;&amp; ( configIDLE_SHOULD_YIELD == 1 )) */ #if( configUSE_IDLE_HOOK == 1 ) {externvoid vApplicationIdleHook( void );/*调用用户定义函数.这样允许设计者在不增加任务开销的情况下实现后台功能注意:这个函数中绝对不允许调用任务可能引起阻塞的函数.*/vApplicationIdleHook(); } #endif/* configUSE_IDLE_HOOK */ #if( configUSE_TICKLESS_IDLE != 0 ) { TickType_txExpectedIdleTime;/*如果每次执行空闲任务都挂起调度器,起然后再解除调度器,这很难让人满意,因此这里执行两次同样的比较(xExpectedIdleTime和configEXPECTED_IDLE_TIME_BEFORE_SLEEP),第一次比较是测试一下是否达到预期的空闲时间,并不会挂起调度器.*/xExpectedIdleTime= prvGetExpectedIdleTime();if(xExpectedIdleTime &gt;= configEXPECTED_IDLE_TIME_BEFORE_SLEEP ){ vTaskSuspendAll(); { /*现在调度器被挂起,需要再次采样空闲时间,这次空闲时间可以使用了*/ configASSERT(xNextTaskUnblockTime &gt;= xTickCount ); xExpectedIdleTime= prvGetExpectedIdleTime(); if(xExpectedIdleTime &gt;= configEXPECTED_IDLE_TIME_BEFORE_SLEEP ) {portSUPPRESS_TICKS_AND_SLEEP(xExpectedIdleTime ); } } (void ) xTaskResumeAll();} } #endif/* configUSE_TICKLESS_IDLE */ }}static portTASK_FUNCTION( prvIdleTask,pvParameters )  {  	 /*防止编译器警告 */  	 (void ) pvParameters;  	 for(;; )  	 {  		   /*检查是否有任务删除了自己,如果有的话,空闲任务负责删除这个任务的TCB和堆栈空间 */  		   prvCheckTasksWaitingTermination();     		   #if( configUSE_PREEMPTION == 0 )  		   {  				/*如果我们没有使用抢占式调度,我们会强制任务切换,看看是否有其它任务变得有效.  				如果使用抢占式调度,是不需要这样的,因为任务变得有效后会抢占空闲任务.*/  				taskYIELD();  		   }  		   #endif/* configUSE_PREEMPTION */  		   #if( ( configUSE_PREEMPTION == 1 ) &amp;&amp; ( configIDLE_SHOULD_YIELD == 1 ) )  		   {  				/*  当使用抢占式内核,相同优先级的任务使用时间片方式获得CPU权限.如果有任务与空闲  				任务共享一个优先级,那么空闲任务不必等到时间片耗尽再进行任务切换.  				如果空闲优先级下的就绪列表中有多个任务,则执行用户任务*/  				if(listCURRENT_LIST_LENGTH( &amp;( pxReadyTasksLists[ tskIDLE_PRIORITY ] ) ) &gt;( UBaseType_t ) 1 )  				{  						 taskYIELD();  				}  		   }  		   #endif/* ( ( configUSE_PREEMPTION == 1 ) &amp;&amp; ( configIDLE_SHOULD_YIELD == 1 )) */     		   #if( configUSE_IDLE_HOOK == 1 )  		   {  				externvoid vApplicationIdleHook( void );     				/*调用用户定义函数.这样允许设计者在不增加任务开销的情况下实现后台功能  				注意:这个函数中绝对不允许调用任务可能引起阻塞的函数.*/  				vApplicationIdleHook();  		   }  		   #endif/* configUSE_IDLE_HOOK */     		   #if( configUSE_TICKLESS_IDLE != 0 )  		   {  		   TickType_txExpectedIdleTime;     				/*如果每次执行空闲任务都挂起调度器,起然后再解除调度器,这很难让人满意,因此这里  				执行两次同样的比较(xExpectedIdleTime和configEXPECTED_IDLE_TIME_BEFORE_SLEEP),  				第一次比较是测试一下是否达到预期的空闲时间,并不会挂起调度器.*/  				xExpectedIdleTime= prvGetExpectedIdleTime();     				if(xExpectedIdleTime &gt;= configEXPECTED_IDLE_TIME_BEFORE_SLEEP )  				{  					 vTaskSuspendAll();  					 {  						   /*现在调度器被挂起,需要再次采样空闲时间,这次空闲时间可以使用了*/  						   configASSERT(xNextTaskUnblockTime &gt;= xTickCount );  						   xExpectedIdleTime= prvGetExpectedIdleTime();     						   if(xExpectedIdleTime &gt;= configEXPECTED_IDLE_TIME_BEFORE_SLEEP )  						   {  								portSUPPRESS_TICKS_AND_SLEEP(xExpectedIdleTime );  						   }  					 }  					 (void ) xTaskResumeAll();  				}  		   }  		   #endif/* configUSE_TICKLESS_IDLE */  	 }  }</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-21493.htm">Java8新特性之Instant详解</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-nekobox-node-github.htm" title="10月12日 | Nekobox Android每天更新21.5M/S免费节点订阅链接">10月12日 | Nekobox Android每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-nekobox-node.htm" title="11月2日 | Nekobox Android每天更新22.1M/S免费节点订阅链接">11月2日 | Nekobox Android每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-free-subscribe-node.htm" title="9月20日 | Nekobox Android每天更新20.6M/S免费节点订阅链接">9月20日 | Nekobox Android每天更新20.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-29-free-node-subscribe-links.htm" title="8月29日 | Nekobox Android每天更新22.7M/S免费节点订阅链接">8月29日 | Nekobox Android每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20580.htm" title="css文本垂直居中详解">css文本垂直居中详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-today-nekobox-node.htm" title="8月12日 | Nekobox Android每天更新21.3M/S免费节点订阅链接">8月12日 | Nekobox Android每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-today-nekobox-node.htm" title="10月25日 | Nekobox Android每天更新18.5M/S免费节点订阅链接">10月25日 | Nekobox Android每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-subscribe-node.htm" title="10月13日 | Nekobox Android每天更新18.1M/S免费节点订阅链接">10月13日 | Nekobox Android每天更新18.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-5-free-nekobox-node.htm" title="9月5日 | Nekobox Android每天更新18.8M/S免费节点订阅链接">9月5日 | Nekobox Android每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-nekobox-node-windows.htm" title="11月5日 | Nekobox Android每天更新19.2M/S免费节点订阅链接">11月5日 | Nekobox Android每天更新19.2M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">Nekobox Android免费节点分享站 版权所有 Powered by WordPress</p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
