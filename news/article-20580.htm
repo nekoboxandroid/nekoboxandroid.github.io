@@ -8,14 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <title>css文本垂直居中详解</title>
         <meta name="description" content="文本垂直居中，分为“单行”与“多行”文本两种情况，多行又分为“固定”与“不固定”高度两种情况，看下图效果。  文本垂直居中   height 搭配 line-height 仅可实现单行文本垂直居中，不" />
-        <link rel="icon" href="__ADDON__/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
-    
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -91,7 +90,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>文本垂直居中，分为“单行”与“多行”文本两种情况，多行又分为“固定”与“不固定”高度两种情况，看下图效果。</p> <div class="pgc-img"><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/1566d27dc9767f11484515a4866d7ba0.jpg" alt="css文本垂直居中详解"></p> <p class="pgc-img-caption">文本垂直居中</p> </div> </h1> <p>height 搭配 line-height 仅可实现单行文本垂直居中，不可用于多行文本。</p> <p>适用：单行文本</p> <pre class="has"><code>.text1 {  width: 200px;  height: 100px;  line-height: 100px;  background: rgb(0, 151, 246);  color: #fff;  text-align: center;}</code></pre> </h1> <p>如果元素高度不固定，可采用 padding-top 与 padding-bottom 同值以实现垂直居中。</p> <p>适用：单行与多行文本。</p> <pre class="has"><code>.text2 {  padding: 20px;  width: 200px;  background: rgb(0, 151, 246);  color: #fff;}</code></pre> </h1> <p>display: table-cell 与 vertical-align: middle 搭配。</p> <p>适用：单行与多行文本。</p> <p>注意：此种情况 margin 不起作用，因为 margin 对 display: table* 情况是无效的。</p> <pre class="has"><code>.text3 {  width: 200px;  height: 100px;  background: rgb(0, 151, 246);  color: #fff;  text-align: center;  display: table-cell;  vertical-align: middle;  border: 1px solid #000;}</code></pre> </h1> <p>利用 flex 布局搭配 align-items: center</p> <p>适用：单行与多行文本。</p> <p>注意：flex 需要兼容写法。</p> <pre class="has"><code>.text4 {  display: flex;  justify-content: center;  align-items: center;  margin-top: 20px;  padding: 0 20px;  width: 200px;  height: 100px;  background: rgb(0, 151, 246);  color: #fff;}</code></pre> </h1> <p>利用 grid 布局(grid or inline-grid)搭配 align-items: center。</p> <p>适用：单行与多行文本。</p> <p>注意：除了 IE，其他大部分浏览器均已支持。</p> <pre class="has"><code>.text5 {  display: grid;  align-items: center;  padding: 0 20px;  width: 200px;  height: 100px;  background: rgb(0, 151, 246);  color: #fff;}</code></pre> </div> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>文本垂直居中，分为“单行”与“多行”文本两种情况，多行又分为“固定”与“不固定”高度两种情况，看下图效果。</p> <div class="pgc-img"><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/1566d27dc9767f11484515a4866d7ba0.jpg" alt="css文本垂直居中详解"></p> <p class="pgc-img-caption">文本垂直居中</p> </div> </h1> <p>height 搭配 line-height 仅可实现单行文本垂直居中，不可用于多行文本。</p> <p>适用：单行文本</p> <pre class="has"><code>.text1 {  width: 200px;  height: 100px;  line-height: 100px;  background: rgb(0, 151, 246);  color: #fff;  text-align: center;}</code></pre> </h1> <p>如果元素高度不固定，可采用 padding-top 与 padding-bottom 同值以实现垂直居中。</p> <p>适用：单行与多行文本。</p> <pre class="has"><code>.text2 {  padding: 20px;  width: 200px;  background: rgb(0, 151, 246);  color: #fff;}</code></pre> </h1> <p>display: table-cell 与 vertical-align: middle 搭配。</p> <p>适用：单行与多行文本。</p> <p>注意：此种情况 margin 不起作用，因为 margin 对 display: table* 情况是无效的。</p> <pre class="has"><code>.text3 {  width: 200px;  height: 100px;  background: rgb(0, 151, 246);  color: #fff;  text-align: center;  display: table-cell;  vertical-align: middle;  border: 1px solid #000;}</code></pre> </h1> <p>利用 flex 布局搭配 align-items: center</p> <p>适用：单行与多行文本。</p> <p>注意：flex 需要兼容写法。</p> <pre class="has"><code>.text4 {  display: flex;  justify-content: center;  align-items: center;  margin-top: 20px;  padding: 0 20px;  width: 200px;  height: 100px;  background: rgb(0, 151, 246);  color: #fff;}</code></pre> </h1> <p>利用 grid 布局(grid or inline-grid)搭配 align-items: center。</p> <p>适用：单行与多行文本。</p> <p>注意：除了 IE，其他大部分浏览器均已支持。</p> <pre class="has"><code>.text5 {  display: grid;  align-items: center;  padding: 0 20px;  width: 200px;  height: 100px;  background: rgb(0, 151, 246);  color: #fff;}</code></pre> </div> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-20118.htm">宠物寄养须知样本（宠物寄养须知样本大全）</a></p>
                                         <p>下一个：<a href="/news/article-20581.htm">ASP.NET Core 6.0 添加 JWT 认证和授权</a></p>
@@ -104,16 +104,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-6-nekobox-node-github.htm" title="8月6日 | Nekobox Android每天更新18.4M/S免费节点订阅链接">8月6日 | Nekobox Android每天更新18.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-8-nekobox-node-windows.htm" title="9月8日 | Nekobox Android每天更新20M/S免费节点订阅链接">9月8日 | Nekobox Android每天更新20M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19663.htm" title="宠物粮食创业项目名称大全图片（宠物粮食行业发展前景）">宠物粮食创业项目名称大全图片（宠物粮食行业发展前景）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-30-nekobox-node.htm" title="8月30日 | Nekobox Android每天更新22.6M/S免费节点订阅链接">8月30日 | Nekobox Android每天更新22.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-18-nekobox-node.htm" title="11月18日 | Nekobox Android每天更新18.5M/S免费节点订阅链接">11月18日 | Nekobox Android每天更新18.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-nekobox-node-github.htm" title="8月15日 | Nekobox Android每天更新22.8M/S免费节点订阅链接">8月15日 | Nekobox Android每天更新22.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20118.htm" title="宠物寄养须知样本（宠物寄养须知样本大全）">宠物寄养须知样本（宠物寄养须知样本大全）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-10-free-node-subscribe.htm" title="8月10日 | Nekobox Android每天更新20.5M/S免费节点订阅链接">8月10日 | Nekobox Android每天更新20.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-25-free-node-subscribe.htm" title="9月25日 | Nekobox Android每天更新19.7M/S免费节点订阅链接">9月25日 | Nekobox Android每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19206.htm" title="动物疫苗打到人身上有事吗有影响吗知乎视频（动物注射疫苗）">动物疫苗打到人身上有事吗有影响吗知乎视频（动物注射疫苗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-high-speed-nodes.htm" title="9月6日 | Nekobox Android每天更新20.7M/S免费节点订阅链接">9月6日 | Nekobox Android每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-18-node-share.htm" title="8月18日 | Nekobox Android每天更新18.8M/S免费节点订阅链接">8月18日 | Nekobox Android每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-subscribe-node.htm" title="10月18日 | Nekobox Android每天更新21.5M/S免费节点订阅链接">10月18日 | Nekobox Android每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-node-subscribe-links.htm" title="10月10日 | Nekobox Android每天更新19.4M/S免费节点订阅链接">10月10日 | Nekobox Android每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-nekobox-node-github.htm" title="10月27日 | Nekobox Android每天更新19.3M/S免费节点订阅链接">10月27日 | Nekobox Android每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-24-today-nekobox-node.htm" title="8月24日 | Nekobox Android每天更新19.3M/S免费节点订阅链接">8月24日 | Nekobox Android每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22868.htm" title="深圳动物打疫苗需要钱吗现在（深圳动物防疫所）">深圳动物打疫苗需要钱吗现在（深圳动物防疫所）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-subscribe-node.htm" title="12月6日 | Nekobox Android每天更新19.9M/S免费节点订阅链接">12月6日 | Nekobox Android每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-today-nekobox-node.htm" title="10月28日 | Nekobox Android每天更新22.2M/S免费节点订阅链接">10月28日 | Nekobox Android每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21494.htm" title="FreeRTOS进阶之空闲任务示例完全解析_操作系统_">FreeRTOS进阶之空闲任务示例完全解析_操作系统_</a></li>
                     </ul>
     </div>
 </div>
@@ -125,7 +125,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -158,7 +158,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-12 col-sm-12">
-                    <p class="copyright">Nekobox Android免费节点分享站 版权所有 Powered by WordPress</p>
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
                 </div>
                 <div class="col-lg-5 col-md-12 col-sm-12">
                     <ul class="social">
