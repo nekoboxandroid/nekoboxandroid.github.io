@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-31771.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>数据库基础知识详解五：MySQL中的索引和其两种引擎、主从复制以及关系型/非关系型数据库</title>
+        <meta name="description" content="1、MySQL中的索引 在MySQL，索引是由B+树实现的，B+是一种与B树十分类似的数据结构。 形如下面这种： 其结构特点： （1）有n课子树的结点中含有n个关键码。 （2）非根节点子节点数：cei" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                                                <a href="/" class="logo"><span>Nekobox Android</span></a>
+                                                
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li><a href="#">关于</a></li>
+                            <li><a href="#">联系</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>数据库基础知识详解五：MySQL中的索引和其两种引擎、主从复制以及关系型/非关系型数据库</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img href="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<h2 id="1mysql中的索引">1、MySQL中的索引</h2> <p>在MySQL，索引是由B+树实现的，B+是一种与B树十分类似的数据结构。</p> <p>形如下面这种：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9949762136bbe02852281493bc0939fa.jpg" alt="数据库基础知识详解五：MySQL中的索引和其两种引擎、主从复制以及关系型/非关系型数据库"></p> <p><strong>其结构特点</strong>：</p> <p>（1）有n课子树的结点中含有n个关键码。</p> <p>（2）非根节点子节点数：<strong>ceil(m/2)&lt;= k &lt;= m</strong>（ceil是天花板函数的意思，也就是向上取整，比如<strong>ceil(1.2)=2</strong> ），m为该B+树的阶数。根节点最少有两个子节点，最多同样为m个。</p> <p>（2）叶子节点包含了全部关键码的信息，及指向含有这些关键码记录的指针。并且叶子节点根据关键码的大小自小至大的顺序链接，叶子节点有相邻结点的指针。</p> <p>（3）所有的非叶子节点（B+树中也称内部结点，索引节点）可以看成索引部分，都不存储数据，只存储索引，结点中仅含有其子树根节点中最大（或者最小）的关键码，数据都存储在叶子节点中。</p> <blockquote> <p><strong>问题：为什么索引不适用B树而是B+树实现？</strong></p> </blockquote> <p>B+树比B树的优点：</p> <ul> <li> <p><strong>IO次数少</strong>：B+树的中间节点只存放索引，数据都存在叶子节点中，所以结点中存取的数据更多，使得B+树更加矮胖，因此可以减少I/O次数。（这里IO指的是磁盘I/O，每一次查询，需要把某结点读到内存，然后把目标数和结点中的比较，不一样则继续I/O）</p> </li> <li> <p><strong>范围查询效率更高</strong>：B树需要中序遍历整个树，B+树只需要遍历叶子结点中的链表。</p> </li> <li> <p><strong>查询效率更加稳定</strong>：B树查询某个数据最好情况只需到根节点，而最坏情况需要遍历整个二叉树。</p> <p>B+树每次查询都需要从根节点到叶子结点，路径长度相同，每次查询效率接近。</p> </li> </ul> <blockquote> <p><strong>问题：为什么不采用效率更高的哈希查找？</strong></p> </blockquote> <p>采用B+树索引与哈希索引的比较：</p> <p>哈希索引能以 O(1) 时间进行查找，但是只支持精确查找，无法用于部分查找和范围查找，无法用于排序与分组。B+树索引支持大于小于等于查找，范围查找。哈希索引遇到大量哈希值相等的情况后查找效率会降低。哈希索引不支持数据的排序。</p> <h2 id="2mysql的两种数据库引擎">2、MySQL的两种数据库引擎</h2> <p>（1）<strong>InnoDB（in-no-db）</strong></p> <ul> <li>支持事务，可以进行Commit和Rollback。</li> <li>支持表级锁和行级锁，增强了并发性。</li> <li>支持外键。</li> <li>支持在线热备份。</li> </ul> <p>（2）<strong>MyISAM（mai-ai-zem）</strong></p> <ul> <li>不支持事务</li> <li>只支持表级锁，不支持行级锁</li> <li>不支持外键</li> <li>MyISAM 崩溃后发生损坏的概率比 InnoDB 高很多，而且恢复的速度也更慢MyISAM 支持压缩表和空间数据索引，比InnoDB需要的内存和存储更少MyISAM 管理非事务表。</li> </ul> <p>它提供高速存储和检索（MyISAM强调的是性能，每次查询具有原子性，其执行速度比InnoDB更快），以及全文搜索能力。如果表比较小，或者是只读数据（有大量的SELECT），还是可以使用MyISAM。InnoDB 支持事务，并发情况下有很好的性能，基本可以替代MyISAM。</p> <blockquote> <p><strong>热备份和冷备份</strong></p> </blockquote> <p><strong>热备份</strong>：在数据库运行的情况下备份的方法。</p> <p>优点：可按表或用户备份，备份时数据库仍可使用，可恢复至任一时间点。但是不能出错。</p> <p><strong>冷备份</strong>：数据库正常关闭后，将关键性文件复制到另一位置的备份方式。</p> <p>优点：操作简单快速，恢复简单。</p> <h2 id="3主从复制">3、主从复制</h2> <p>主从复制（Replication）是指数据可以从一个MySQL数据库主服务器复制到一个或多个从服务器，从服务器可以复制主服务器中的所有数据库或者特定的数据库，或者特定的表。默认采用异步模式。</p> <p>实现原理：</p> <ul> <li>主服务器 binary log dump 线程：将主服务器中的数据更改（增删改）日志写入 Binary log 中。</li> <li>从服务器 I/O 线程：负责从主服务器读取binary log，并写入本地的 Relay log。</li> <li>从服务器 SQL 线程：负责读取 Relay log，解析出主服务器已经执行的数据更改，并在从服务器中重新执行（Replay），保证主从数据的一致性。</li> </ul> <h2 id="4关系型数据库和非关系型数据库">4、关系型数据库和非关系型数据库</h2> <p><strong>关系型数据库（如Oracle，MySQL）</strong>：<br /> 表和表、表和字段、数据和数据存在着关系，它通过数据、关系和对数据的约束三者组成的数据模型来存放和管理数据。<br /><strong>优点</strong>:</p> <ul> <li>数据之间存在关系，进行数据的增删改查的时候较为方便。</li> <li>关系型数据库是有事务操作的，便于保证数据的完整性和一致性。</li> <li>可以通用SQL语言，便于操作者学习使用。</li> </ul> <p><strong>缺点</strong>：</p> <ul> <li>因为数据和数据是有关系的，底层会运行相关的算法，大量算法会降低系统的效率，会降低性能。</li> <li>面对海量数据的增删改查和维护的时候会显的无能为力。</li> <li>因为是固定的表结构类型，所以灵活度较低。</li> </ul> <p><strong>非关系数据库（如redis和MangDB）</strong><br /> 非关系型数据库严格上不是一种数据库，而是一种数据结构化存储方法的集合，可以是文档或者键值对等。<br /> 为了处理大量数据，非关系数据库设计之初就是为了去替代关系型数据库。<br /><strong>优点</strong>：</p> <ul> <li>存储格式较为灵活，存储数据的格式可以是key-value，文档，图片形式等等，应用成精更加的广泛。</li> <li>速度更快，不仅支持硬盘这样的载体，还支持另外的存储器来存储数据，如Redis就支持内存来存储数据。</li> <li>能支持对大量数据的查找和读写。</li> </ul> <p><strong>缺点</strong>：</p> <ul> <li>不支持SQL语言的通用，需要单独去学习其操作使用。</li> <li>非关系数据库一般没有事务处理，较难保证数据的完整性和安全性。</li> <li>数据结构较复杂，如果要进行复杂的查询会加大难度。</li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-31215.htm">初中毕业兽医专业学校（兽医学校的招生条件初中毕业）</a></p>
+                                        <p>下一个：<a href="/news/article-31772.htm">宠物粮食在哪里进货好呢知乎文章（宠物粮在哪里批发）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-today-nekobox-node.htm" title="9月21日 | Nekobox Android每天更新19M/S免费节点订阅链接">9月21日 | Nekobox Android每天更新19M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27039.htm" title="宠物疫苗查询系统（宠物疫苗接种查询系统）">宠物疫苗查询系统（宠物疫苗接种查询系统）</a></li>
+                        <li class="py-2"><a href="/news/article-25644.htm" title="小动物医院情景剧（动物医院故事）">小动物医院情景剧（动物医院故事）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-nekobox-node-github.htm" title="11月7日 | Nekobox Android每天更新19.5M/S免费节点订阅链接">11月7日 | Nekobox Android每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27504.htm" title="宠物美容开店多少钱一个月（开一家宠物美容店都需要一些什么）">宠物美容开店多少钱一个月（开一家宠物美容店都需要一些什么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-free-nekobox-node.htm" title="8月26日 | Nekobox Android每天更新19.3M/S免费节点订阅链接">8月26日 | Nekobox Android每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-nekobox-node.htm" title="11月18日 | Nekobox Android每天更新18.5M/S免费节点订阅链接">11月18日 | Nekobox Android每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-10-free-node-subscribe.htm" title="8月10日 | Nekobox Android每天更新20.5M/S免费节点订阅链接">8月10日 | Nekobox Android每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-30-nekobox-github.htm" title="9月30日 | Nekobox Android每天更新18.4M/S免费节点订阅链接">9月30日 | Nekobox Android每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-nekobox-node.htm" title="10月14日 | Nekobox Android每天更新20.8M/S免费节点订阅链接">10月14日 | Nekobox Android每天更新20.8M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
