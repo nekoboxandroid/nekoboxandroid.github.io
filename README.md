@@ -1,4 +1,4 @@
-# 12月30日 | Nekobox Android每天更新20.3M/S免费节点订阅地址分享  更新时间 2024-12-30 09:16:59
+# 12月31日 | Nekobox Android每天更新19.6M/S免费节点订阅地址分享  更新时间 2024-12-31 10:57:53
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://nekoboxandroid.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://nekoboxandroid.github.io/uploads/2024/12/0-20241230.yaml
-- https://nekoboxandroid.github.io/uploads/2024/12/1-20241230.yaml
-- https://nekoboxandroid.github.io/uploads/2024/12/2-20241230.yaml
-- https://nekoboxandroid.github.io/uploads/2024/12/3-20241230.yaml
-- https://nekoboxandroid.github.io/uploads/2024/12/4-20241230.yaml
+- https://nekoboxandroid.github.io/uploads/2024/12/0-20241231.yaml
+- https://nekoboxandroid.github.io/uploads/2024/12/1-20241231.yaml
+- https://nekoboxandroid.github.io/uploads/2024/12/2-20241231.yaml
+- https://nekoboxandroid.github.io/uploads/2024/12/3-20241231.yaml
+- https://nekoboxandroid.github.io/uploads/2024/12/4-20241231.yaml
 
 ### V2ray订阅链接
 
-- https://nekoboxandroid.github.io/uploads/2024/12/0-20241230.txt
-- https://nekoboxandroid.github.io/uploads/2024/12/1-20241230.txt
-- https://nekoboxandroid.github.io/uploads/2024/12/2-20241230.txt
-- https://nekoboxandroid.github.io/uploads/2024/12/3-20241230.txt
-- https://nekoboxandroid.github.io/uploads/2024/12/4-20241230.txt
+- https://nekoboxandroid.github.io/uploads/2024/12/0-20241231.txt
+- https://nekoboxandroid.github.io/uploads/2024/12/1-20241231.txt
+- https://nekoboxandroid.github.io/uploads/2024/12/2-20241231.txt
+- https://nekoboxandroid.github.io/uploads/2024/12/3-20241231.txt
+- https://nekoboxandroid.github.io/uploads/2024/12/4-20241231.txt
 
 ### Sing-box订阅链接
 
-- https://nekoboxandroid.github.io/uploads/2024/12/20241230.json
+- https://nekoboxandroid.github.io/uploads/2024/12/20241231.json
 
 ## 更多clash节点订阅 ：
 
