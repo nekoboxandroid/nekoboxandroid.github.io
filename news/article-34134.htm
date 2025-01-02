@@ -94,6 +94,7 @@
                   				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">vue弹窗关闭后刷新效果</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">问题</a></li> <li><a href="#_lab2_0_1" rel="nofollow">解决</a></li> </ul> <li><a href="#_label1" rel="nofollow">关闭或刷新vue文件弹出提示框</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>vue弹窗关闭后刷新效果</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>问题</h3> <p>列表点击进入详情时弹窗内容重新赋值，但是修改后未点击保存再打开同一个弹窗，数据是关闭前的样子。</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>解决</h3> <p>在双击时间里定义一个时间戳，每次点击传过去的值，在弹窗watch里接收时间戳再赋值。关闭页面清空对象。</p> <p><strong>列表页：</strong></p> <div class="ay1code"> <pre class="brush:js;">this.timestamp=new Date().getTime();</pre> </div> <p><strong>弹窗详情页：</strong></p> <div class="ay1code"> <pre class="brush:js;">props: {timestamp:Number}  watch: {     timestamp:{       //深度监控的数据获取    }  }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>关闭或刷新vue文件弹出提示框</h2> <p>在vue文件中加入如下代码：</p> <p>我将如下代码加入到了app.vue中</p> <div class="ay1code"> <pre class="brush:js;">beforeRouteLeave(to, from, next) {  const answer = window.confirm(“当前页面数据未保存，确定要离开？”);  if (answer) {  next();  } else {  next(false);  }  },  mounted() {  var _this=this;  window.onbeforeunload = function(e) {  if (_this.$route.fullPath == ‘/index/uploadImages') {  e = e || window.event;  // 兼容IE8和Firefox 4之前的版本  if (e) {  e.returnValue = “关闭提示”;  }  // Chrome, Safari, Firefox 4+, Opera 12+ , IE 9+  return “关闭提示”;  } else {  window.onbeforeunload = null;  }  };  }</pre> </div> <p>编译运行，在浏览器刷新/关闭，弹出以下提示框</p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220424/189ef88a42c1952be7ea7495213d267a.jpg"></p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220424/787b769ccdca82e707e1ffc4c9e3b246.jpg"></p> <p><strong>注意：</strong>上面的方法生效的前题是，打开该网页后，需要鼠标点击一下网页，让网页获取焦点，然后再关闭或刷新! 若打开后不点击页面直接关闭或刷新不会触发该方法。</p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-34133.htm">JavaScript如何查找数字的月份总和</a></p>
+                                        <p>下一个：<a href="/news/article-34612.htm">动物疫苗行业排名榜前十 动物疫苗行业排名榜前十名</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -103,16 +104,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-23-nekobox-node-share.htm" title="11月23日 | Nekobox Android每天更新20.3M/S免费节点订阅链接">11月23日 | Nekobox Android每天更新20.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-3-latest-nekobox-node.htm" title="10月3日 | Nekobox Android每天更新19.4M/S免费节点订阅链接">10月3日 | Nekobox Android每天更新19.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-28436.htm" title="动物疫苗审批流程是什么意思（动物疫苗经营许可证怎么申请）">动物疫苗审批流程是什么意思（动物疫苗经营许可证怎么申请）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-24-latest-nekobox-node.htm" title="10月24日 | Nekobox Android每天更新18.3M/S免费节点订阅链接">10月24日 | Nekobox Android每天更新18.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-32705.htm" title="动物疫苗对人体有害吗（动物疫苗有没有毒）">动物疫苗对人体有害吗（动物疫苗有没有毒）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-nekobox-node-share.htm" title="9月13日 | Nekobox Android每天更新21.2M/S免费节点订阅链接">9月13日 | Nekobox Android每天更新21.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-subscribe-node.htm" title="11月28日 | Nekobox Android每天更新19.3M/S免费节点订阅链接">11月28日 | Nekobox Android每天更新19.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-nekobox-node.htm" title="12月22日 | Nekobox Android每天更新19.5M/S免费节点订阅地址分享">12月22日 | Nekobox Android每天更新19.5M/S免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-16-free-high-speed-nodes.htm" title="12月16日 | Nekobox Android每天更新22M/S免费节点订阅链接">12月16日 | Nekobox Android每天更新22M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-31215.htm" title="初中毕业兽医专业学校（兽医学校的招生条件初中毕业）">初中毕业兽医专业学校（兽医学校的招生条件初中毕业）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-17-nekobox-node-github.htm" title="9月17日 | Nekobox Android每天更新18.4M/S免费节点订阅链接">9月17日 | Nekobox Android每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-today-nekobox-node.htm" title="12月20日 | Nekobox Android每天更新18.6M/S免费节点订阅链接">12月20日 | Nekobox Android每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25186.htm" title="瑞鹏宠物医院收费价目表图片高清（瑞鹏宠物医院好吗?）">瑞鹏宠物医院收费价目表图片高清（瑞鹏宠物医院好吗?）</a></li>
+                        <li class="py-2"><a href="/news/article-21039.htm" title="腊八节吃什么最适合(腊八节吃什么美食)">腊八节吃什么最适合(腊八节吃什么美食)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-nekobox-node-share.htm" title="10月16日 | Nekobox Android每天更新22.2M/S免费节点订阅链接">10月16日 | Nekobox Android每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30325.htm" title="新手开店适合开什么店成本低的（适合新手开的店铺）">新手开店适合开什么店成本低的（适合新手开的店铺）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-node-subscribe-links.htm" title="11月20日 | Nekobox Android每天更新18.5M/S免费节点订阅链接">11月20日 | Nekobox Android每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-node-share-links.htm" title="12月7日 | Nekobox Android每天更新20.1M/S免费节点订阅链接">12月7日 | Nekobox Android每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33657.htm" title="宠物粮食市场分析图 宠物粮食市场分析图表">宠物粮食市场分析图 宠物粮食市场分析图表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-nekobox-node-share.htm" title="12月28日 | Nekobox Android每天更新19.4M/S免费节点订阅地址分享">12月28日 | Nekobox Android每天更新19.4M/S免费节点订阅地址分享</a></li>
                     </ul>
     </div>
 </div>
@@ -124,7 +125,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
