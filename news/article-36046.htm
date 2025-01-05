@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-34134.htm" />
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-36046.htm" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <title>vue 实现弹窗关闭后刷新效果_vue.js</title>
-        <meta name="description" content="目录  vue弹窗关闭后刷新效果  问题 解决  关闭或刷新vue文件弹出提示框     vue弹窗关闭后刷新效果  问题 列表点击进入详情时弹窗内容重新赋值，但是修改后未点击保存再打开同一个弹窗，数" />
+    <title>python end用法_python end用法</title>
+        <meta name="description" content="原博文 2020-01-15 16:57 − python中“end=”用法：例如print（“#”，end=" \n")，默认换行，print（“#”，end=" ")则在循环中不换行... 相关推" />
         <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
@@ -71,7 +71,7 @@
             <div class="container">
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>vue 实现弹窗关闭后刷新效果_vue.js</h1>
+                        <h1>python end用法_python end用法</h1>
                         <p>
                             <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
                         </p>
@@ -91,10 +91,10 @@
             <div class="row">
                 <div class="col-md-9">
                                     <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
-                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">vue弹窗关闭后刷新效果</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">问题</a></li> <li><a href="#_lab2_0_1" rel="nofollow">解决</a></li> </ul> <li><a href="#_label1" rel="nofollow">关闭或刷新vue文件弹出提示框</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>vue弹窗关闭后刷新效果</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>问题</h3> <p>列表点击进入详情时弹窗内容重新赋值，但是修改后未点击保存再打开同一个弹窗，数据是关闭前的样子。</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>解决</h3> <p>在双击时间里定义一个时间戳，每次点击传过去的值，在弹窗watch里接收时间戳再赋值。关闭页面清空对象。</p> <p><strong>列表页：</strong></p> <div class="ay1code"> <pre class="brush:js;">this.timestamp=new Date().getTime();</pre> </div> <p><strong>弹窗详情页：</strong></p> <div class="ay1code"> <pre class="brush:js;">props: {timestamp:Number}  watch: {     timestamp:{       //深度监控的数据获取    }  }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>关闭或刷新vue文件弹出提示框</h2> <p>在vue文件中加入如下代码：</p> <p>我将如下代码加入到了app.vue中</p> <div class="ay1code"> <pre class="brush:js;">beforeRouteLeave(to, from, next) {  const answer = window.confirm(“当前页面数据未保存，确定要离开？”);  if (answer) {  next();  } else {  next(false);  }  },  mounted() {  var _this=this;  window.onbeforeunload = function(e) {  if (_this.$route.fullPath == ‘/index/uploadImages') {  e = e || window.event;  // 兼容IE8和Firefox 4之前的版本  if (e) {  e.returnValue = “关闭提示”;  }  // Chrome, Safari, Firefox 4+, Opera 12+ , IE 9+  return “关闭提示”;  } else {  window.onbeforeunload = null;  }  };  }</pre> </div> <p>编译运行，在浏览器刷新/关闭，弹出以下提示框</p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220424/189ef88a42c1952be7ea7495213d267a.jpg"></p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220424/787b769ccdca82e707e1ffc4c9e3b246.jpg"></p> <p><strong>注意：</strong>上面的方法生效的前题是，打开该网页后，需要鼠标点击一下网页，让网页获取焦点，然后再关闭或刷新! 若打开后不点击页面直接关闭或刷新不会触发该方法。</p> 			                <div class="clearfix"></div>
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>原博文</p> <p>2020-01-15 16:57 −</p> <p>python中“end=”用法：例如print（“#”，end=" \n")，默认换行，print（“#”，end=" ")则在循环中不换行...</p> <p>相关推荐</p> <p>2019-12-04 22:14 −</p> <p>[toc]</p> <p>## 多行语句</p> <p>Python 通常是一行写完一条语句，但如果语句很长，我们可以使用反斜杠(\\)来实现多行语句，例如：</p> <p>```python</p> <p>total = item_one + \ item_two + \ item_three</p> <p>```</p> <p>在 [], {}, 或 () 中的多...</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221230/5bd155528a3a8d68ac4f02d492234684.jpg" alt="python end用法_python end用法"></p> <p>0</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221230/9a50dc07b2ba2a63d1c2a2e8e5976430.jpg" alt="python end用法_python end用法"></p> <p>117</p> <p>2019-12-10 17:44 −</p> <p>end()</p> <p>V1.0概述</p> <p>回到最近的一个"破坏性"操作之前。即，将匹配的元素列表变为前一次的状态。</p> <p>如果之前没有破坏性操作，则返回一个空集。所谓的"破坏性"就是指任何改变所匹配的jQuery元素的操作。这包括在 Traversing 中任何返回一个jQuery对象的函数--'add', 'andS...</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221230/5bd155528a3a8d68ac4f02d492234684.jpg" alt="python end用法_python end用法"></p> <p>0</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221230/9a50dc07b2ba2a63d1c2a2e8e5976430.jpg" alt="python end用法_python end用法"></p> <p>32</p> <p>2019-12-25 04:02 −</p> <p>`begin(a)`指向数组`a`的第一个元素，`end(a)`指向数组`a`最后一个元素**之后的一个元素** ``` #include using namespace std; int main() { int ia[] = {0,1,2,3}; int *beg = begin(ia...</p> <p>2019-12-11 09:32 −</p> <p>https://blog.csdn.net/xuxurui007/article/details/8479953...</p> <p>2019-12-10 10:09 −</p> <p>1.可变长参数:在调用函数时，实参值得个数不固定</p> <p>实参的形式有：位置实参和关键字实参</p> <p>形参的解决方案为 *，**</p> <p>位置形参例子：</p> <p>def foo(x,y,*args):</p> <p>&amp;nbsp...</p> <p>2019-12-01 00:11 −</p> <p>1 """ 2 print(...) 3 print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) 4 5 Prints the values to a stream, or to sys.stdout by d...</p> <p>2019-12-05 11:09 −</p> <p>列表推导式(又称列表解析式)提供了一种简明扼要的方法来创建列表</p> <p>一个简单平方</p> <p>普通for循环</p> <p>for i in range(1,5):</p> <p>print(i*i,end='')</p> <p>列表推导式</p> <p>res = [x*x for x in range(1,5)]</p> <p>print(res)</p> <p>执行顺序</p> <p>[...</p> <p>2019-12-11 13:16 −</p> <p>在python开发过程中，print函数和format函数使用场景特别多，下面分别详细讲解两个函数的用法。</p> <p>一.print函数</p> <p>print翻译为中文指打印，在python中能直接输出到控制台，我们可以使用print函...</p> <p>2019-12-18 22:05 −</p> <p>程序的作用just用来处理数据</p> <p>编程语言中数据使用变量的形式保存</p> <p>为变量设只“值”的过程，称为“赋值”</p> <p>## 定义变量</p> <p>变量的语法：变量名=值</p> <p>等号左边是变量的名称</p> <p>等号右边是变量要保存的数据</p> <p>```python</p> <p>name = "张三"</p> <p>print(name)</p> <p>```</p> <p>print只会将当前（最新的...</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221230/5bd155528a3a8d68ac4f02d492234684.jpg" alt="python end用法_python end用法"></p> <p>0</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221230/9a50dc07b2ba2a63d1c2a2e8e5976430.jpg" alt="python end用法_python end用法"></p> <p>95</p> <p>2019-12-23 20:22 −</p> <p>#装饰器的作用：不想修改函数的调用方式，但是还想再原来的函数后面添加功能</p> <p># 装饰器形成的过程 : 最简单的装饰器 有返回值的 有一个参数 万能参数</p> <p># 原则 ：开放封闭原则</p> <p># 语法糖 ：@</p> <p># 装饰器的固定模式</p> <p>def wapper(func): #装饰器函数</p> <p>...</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-34133.htm">JavaScript如何查找数字的月份总和</a></p>
-                                        <p>下一个：<a href="/news/article-34612.htm">动物疫苗行业排名榜前十 动物疫苗行业排名榜前十名</a></p>
+                                        <p>上一个：<a href="/news/article-35555.htm">沈阳宠物领养平台（沈阳宠物犬领养）</a></p>
+                                        <p>下一个：<a href="/news/article-36047.htm">宠物狗狗免费领养网询问（正规免费领养宠物狗）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -104,16 +104,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-19206.htm" title="动物疫苗打到人身上有事吗有影响吗知乎视频（动物注射疫苗）">动物疫苗打到人身上有事吗有影响吗知乎视频（动物注射疫苗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-node-subscribe.htm" title="12月17日 | Nekobox Android每天更新22.8M/S免费节点订阅链接">12月17日 | Nekobox Android每天更新22.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-22-nekobox-node.htm" title="11月22日 | Nekobox Android每天更新21.2M/S免费节点订阅链接">11月22日 | Nekobox Android每天更新21.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-23790.htm" title="在K8s上部署Redis 集群">在K8s上部署Redis 集群</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-node-share-links.htm" title="10月26日 | Nekobox Android每天更新21.2M/S免费节点订阅链接">10月26日 | Nekobox Android每天更新21.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-subscribe-node.htm" title="12月6日 | Nekobox Android每天更新19.9M/S免费节点订阅链接">12月6日 | Nekobox Android每天更新19.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-29840.htm" title="猫不打疫苗有时对人有什么影响没（猫不打疫苗会发生什么）">猫不打疫苗有时对人有什么影响没（猫不打疫苗会发生什么）</a></li>
-                        <li class="py-2"><a href="/news/article-30326.htm" title="宠物领养APP信息架构设计（宠物领养软件下载）">宠物领养APP信息架构设计（宠物领养软件下载）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-3-free-node-subscribe-links.htm" title="1月3日 | Nekobox Android每天更新23M/S免费节点订阅地址分享">1月3日 | Nekobox Android每天更新23M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-nekobox-node-github.htm" title="12月24日 | Nekobox Android每天更新18.2M/S免费节点订阅地址分享">12月24日 | Nekobox Android每天更新18.2M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-nekobox-github.htm" title="11月9日 | Nekobox Android每天更新20.3M/S免费节点订阅链接">11月9日 | Nekobox Android每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-nekobox-github.htm" title="10月29日 | Nekobox Android每天更新19.8M/S免费节点订阅链接">10月29日 | Nekobox Android每天更新19.8M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-12-31-free-nekobox-node.htm" title="12月31日 | Nekobox Android每天更新21.1M/S免费节点订阅地址分享">12月31日 | Nekobox Android每天更新21.1M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-subscribe-node.htm" title="11月28日 | Nekobox Android每天更新19.3M/S免费节点订阅链接">11月28日 | Nekobox Android每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21956.htm" title="什么品牌狗粮比较好（什么品牌狗粮比较好用）">什么品牌狗粮比较好（什么品牌狗粮比较好用）</a></li>
+                        <li class="py-2"><a href="/news/article-19206.htm" title="动物疫苗打到人身上有事吗有影响吗知乎视频（动物注射疫苗）">动物疫苗打到人身上有事吗有影响吗知乎视频（动物注射疫苗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-node-subscribe-links.htm" title="11月20日 | Nekobox Android每天更新18.5M/S免费节点订阅链接">11月20日 | Nekobox Android每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-free-node-subscribe-links.htm" title="1月3日 | Nekobox Android每天更新23M/S免费节点订阅地址分享">1月3日 | Nekobox Android每天更新23M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-nekobox-node-github.htm" title="12月9日 | Nekobox Android每天更新22.4M/S免费节点订阅链接">12月9日 | Nekobox Android每天更新22.4M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -125,7 +125,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
