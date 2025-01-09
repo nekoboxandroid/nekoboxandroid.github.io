@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-37992.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>python里函数怎么样使用元组或字典作为参数调用</title>
+        <meta name="description" content="在原来python2里有一个函数apply来做这种事情，如下：  # File: builtin-apply-example-1.py  def function(a, b):     print a" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                                                <a href="/" class="logo"><span>Nekobox Android</span></a>
+                                                
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li><a href="#">关于</a></li>
+                            <li><a href="#">联系</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>python里函数怎么样使用元组或字典作为参数调用</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img href="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>在原来python2里有一个函数apply来做这种事情，如下：</p> <p></p> <pre><code class="language-python"># File: builtin-apply-example-1.py  def function(a, b):     print a, b  apply(function, ("whither", "canada?")) apply(function, (1, 2 + 3))</code></pre> <p></p> <pre><code class="language-python"># File: builtin-apply-example-2.py  def function(a, b):     print a, b  apply(function, ("crunchy", "frog")) apply(function, ("crunchy",), {"b": "frog"}) apply(function, (), {"a": "crunchy", "b": "frog"})</code></pre> <p>现在换成python3了，就不能这样使用了，因为这个函数已经不再使用了。那么怎么办呢？</p> <p>可以如下调用：</p> <pre><code class="language-python"># File: builtin-apply-example-1.py  def function(a, b):     print(a, b)  #apply(function, ("whither", "canada?")) #apply(function, (1, 2 + 3)) function(*("whither", "canada?")) function(*(1, 2 + 3))</code></pre> <p></p> <pre><code class="language-python"># File: builtin-apply-example-1.py  def function(a, b):     print(a, b)  #apply(function, ("whither", "canada?")) #apply(function, (1, 2 + 3)) function(*("whither", "canada?")) function(*(1, 2 + 3)) function(**{"a": "crunchy", "b": "frog"})</code></pre> <p>可以看到采用*元组、**字典的方式调用。</p> <h3 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial;"><span style="font-size: 18px;"><span style="font-weight: normal;"><span style="font-family: SimSun;">Python游戏开发入门</span></span></span></h3> <div style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px;">  <span style="font-size: 18px;"><span style="font-family: SimSun;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/5690"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/5690</a><br /></span></span> </div> <h3 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial;"> <a target="_blank" name="t7" style="color: rgb(51, 102, 153);" rel="nofollow"></a><span style="font-size: 18px;"><span style="font-weight: normal;"><span style="font-family: SimSun;">你也能动手修改C编译器</span></span></span><br /> </h3> <div style="color: rgb(51, 51, 51); font-family: Arial; font-size: 14px;">  <span style="font-size: 18px;"><span style="font-family: SimSun;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/5582"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/5582</a><br /></span></span> </div> <h3 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial;"> <a target="_blank" name="t8" style="color: rgb(51, 102, 153);" rel="nofollow"></a><span style="font-size: 18px;"><span style="font-weight: normal;"><span style="font-family: SimSun;">纸牌游戏开发</span></span></span><br /> </h3> <h3 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial;"> <a target="_blank" name="t9" style="color: rgb(51, 102, 153);" rel="nofollow"></a><span style="font-size: 18px;"><span style="font-weight: normal;"><span style="font-family: SimSun;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/5538"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/5538&nbsp;</a></span></span></span><br /> </h3> <h3 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial;"> <a target="_blank" name="t10" style="color: rgb(51, 102, 153);" rel="nofollow"></a><span style="font-size: 18px;"><span style="font-weight: normal;"><span style="font-family: SimSun;">五子棋游戏开发<br /></span></span></span><br /> </h3> <h3 style="margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: Arial;"> <span style="font-size: 18px;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/5487"  style="color: rgb(51, 102, 153); text-decoration-line: none; font-weight: normal;" rel="nofollow">http://edu.csdn.net/course/detail/5487<br /></a></span><span style="font-weight: normal;"><span style="font-family: SimSun;"><span style="font-size: 18px;">RPG游戏从入门到精通<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/5246"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/5246</a></span></span><span style="font-size: 18px;"><br /></span><span style="font-size: 18px;"><span style="font-weight: normal;">WiX安装工具的使用</span><br /></span><span style="font-weight: normal;"><span style="font-family: SimSun;"><span style="font-size: 18px;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/5207"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/5207<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">俄罗斯方块游戏开发<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/5110"  style="color: rgb(51, 102, 153); text-decoration-line: none; font-weight: normal;" rel="nofollow">http://edu.csdn.net/course/detail/5110<br /></a></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">boost库入门基础<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/5029"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/5029<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">Arduino入门基础<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/4931"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/4931<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">Unity5.x游戏基础入门<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/4810"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/4810<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">TensorFlow API攻略<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/4495"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/4495<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">TensorFlow入门基本教程<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/4369"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/4369<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">C++标准模板库从入门到精通&nbsp;<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/3324"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/3324<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">跟老菜鸟学C++<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/2901"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/2901<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">跟老菜鸟学python<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/2592"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/2592<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">在VC2015里学会使用tinyxml库<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/2590"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/2590<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">在Windows下SVN的版本管理与实战&nbsp;<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/2579"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/2579<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">Visual Studio 2015开发C++程序的基本使用&nbsp;<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/2570"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/2570<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">在VC2015里使用protobuf协议<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/2582"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/2582<br /></a></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;">在VC2015里学会使用MySQL数据库<br /></span></span></span><span style="font-family: SimSun;"><span style="font-size: 18px;"><span style="font-weight: normal;"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://edu.csdn.net/course/detail/2672"  style="color: rgb(51, 102, 153); text-decoration-line: none;" rel="nofollow">http://edu.csdn.net/course/detail/2672</a></span></span></span></h3> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37490.htm">小猫多长时间吃猫粮（小猫好久才能吃猫粮）</a></p>
+                                        <p>下一个：<a href="/news/article-37993.htm">inner join 和 exists 效率_19条效率至少提高3倍的MySQL技巧</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36524.htm" title="动物医院300字作文（动物医院300字作文怎么写）">动物医院300字作文（动物医院300字作文怎么写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-nekobox-node.htm" title="10月15日 | Nekobox Android每天更新19.8M/S免费节点订阅链接">10月15日 | Nekobox Android每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24256.htm" title="开宠物医院的条件是什么（开宠物医院需要什么条件）">开宠物医院的条件是什么（开宠物医院需要什么条件）</a></li>
+                        <li class="py-2"><a href="/news/article-22409.htm" title="2020宠物疫苗收费标准（宠物疫苗收费价目表）">2020宠物疫苗收费标准（宠物疫苗收费价目表）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-free-node-subscribe.htm" title="1月6日 | Nekobox Android每天更新20.6M/S免费节点订阅地址分享">1月6日 | Nekobox Android每天更新20.6M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-21493.htm" title="Java8新特性之Instant详解">Java8新特性之Instant详解</a></li>
+                        <li class="py-2"><a href="/news/article-35554.htm" title="参观动物医院的心得体会300字（参观动物园心得）">参观动物医院的心得体会300字（参观动物园心得）</a></li>
+                        <li class="py-2"><a href="/news/article-19663.htm" title="宠物粮食创业项目名称大全图片（宠物粮食行业发展前景）">宠物粮食创业项目名称大全图片（宠物粮食行业发展前景）</a></li>
+                        <li class="py-2"><a href="/news/article-24722.htm" title="宠物领养合同属于合同法吗（宠物领养合同属于合同法吗）">宠物领养合同属于合同法吗（宠物领养合同属于合同法吗）</a></li>
+                        <li class="py-2"><a href="/news/article-32240.htm" title="记一次Spring|项目启动耗时超级长的优化">记一次Spring|项目启动耗时超级长的优化</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
