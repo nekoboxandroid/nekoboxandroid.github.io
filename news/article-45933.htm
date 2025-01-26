@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-45933.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>【数据结构之线性表】顺序表简单实现图书系统</title>
+        <meta name="description" content="&nbsp; &nbsp; &nbsp; &nbsp; 本次图书系统使用DEV C++软件来进行操作实现。实现语言是c++。 实现图书系统使用到了顺序表的初始化、顺序表的建立、顺序表的插入、顺序表的删" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-45933.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="【数据结构之线性表】顺序表简单实现图书系统" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/2465d07a6caba08dd40a9b7f7f67403c.webp" />
+        <meta property="og:release_date" content="2025-01-25T09:53:06" />
+    <meta property="og:updated_time" content="2025-01-25T09:53:06" />
+        <meta property="og:description" content="&nbsp; &nbsp; &nbsp; &nbsp; 本次图书系统使用DEV C++软件来进行操作实现。实现语言是c++。 实现图书系统使用到了顺序表的初始化、顺序表的建立、顺序表的插入、顺序表的删" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【数据结构之线性表】顺序表简单实现图书系统">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                                                <a href="/" class="logo"><span>Nekobox Android</span></a>
+                                                
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li><a href="#">关于</a></li>
+                            <li><a href="#">联系</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>【数据结构之线性表】顺序表简单实现图书系统</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img href="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp; &nbsp; &nbsp; &nbsp; 本次图书系统使用DEV C++软件来进行操作实现。实现语言是c++。</p> <p>实现图书系统使用到了顺序表的初始化、顺序表的建立、顺序表的插入、顺序表的删除、顺序表的查找等顺序表的基本操作。还使用到了c++的流进行数据的输入。</p> <pre><code class="language-cpp">#include&lt;iostream&gt; #include&lt;fstream&gt; #include &lt;iomanip&gt;//这三个是c++的头文件 #define MAXSIZE 20 using namespace std; typedef int Status;  //定义图书类型  typedef struct { 	string id;//ISBN 	string name;//书名 	double price;//定价  } Book; typedef struct { 	Book *elem;//存储基地址 	int length;//当前长度  }SqList; //顺序表初始化 Status InitList (SqList &amp;L) { 	L.elem = new Book[MAXSIZE];//为顺序表分配一个大小为MAXSIZE的数组空间 	if(L.elem == NULL) { 		cout&lt;&lt; "初始化分配失败！" &lt;&lt;endl; 		return 0;//初始化分配失败返回0。  	}  	L.length = 0; 	return 1;//返回一则初始化成功  } //顺序表的取值 Status GetElem (SqList L, int i, Book &amp;e) { 	if(i &lt; 1 || i &gt; L.length) { 		cout &lt;&lt; "获取值失败，原因：取值不合理！！！" &lt;&lt; endl; 		exit(1);//取值不合理直接退出。  	} 	e = L.elem[i - 1]; 	return 1;//取值成功返回一。  }  //顺序表的查找  Status LocatElem (SqList L, double e) { 	for(int i = 0; i &lt; L.length; i++) { 		if(L.elem[i].price == e) { 			return i + 1;//查找成功则返回序号 i + 1;  		} 	}  	return 0;//查找失败返回0。  }  //顺序表的插入 Status ListInsert (SqList &amp;L, int i, Book e) { 	//首先判断是否可以插入 	if(i &lt; 1 || i &gt; L.length + 1) 	{ 		return 0;  	 }  	 if(L.length == MAXSIZE)  	 { 	 	return 0; 	 } 	 for (int j = L.length - 1; j &gt;= i - 1; j--) {//插入位置及其之后的元素向后移动一位。  	 	L.elem[j + 1] = L.elem[j]; 	 } 	 L.elem[i - 1] = e;//将元素e放入到第i个元素。  	 ++L.length;//顺序表加长。  	 return 1;//插入成功返回 1。  }  //顺序表的删除 Status ListDelete (SqList &amp;L, Status i) { 	//在顺序表中删除第i个元素，首先判断i的取值范围。 	if(i &lt; 1 || i &gt; L.length) { 		cout &lt;&lt; "删除失败！！！"; 		return 0;//i值不合法，返回0.  	}  	for(int j = i; j &lt;= L.length - 1; j++) { 		L.elem[j - 1] = L.elem[j]; 	} 	--L.length; 	return 1;//删除成功返回1.  }  //编写主函数调用顺序表的算法  int main() { 	SqList L; 	int i = 0, temp = 0, location = 0; 	int choose; 	double price = 0; 	Book e; 	string head_1, head_2, head_3; 	cout &lt;&lt; "1,建立\n"; 	cout &lt;&lt; "2,输入\n"; 	cout &lt;&lt; "3,取值\n"; 	cout &lt;&lt; "4,查找\n"; 	cout &lt;&lt; "5,插入\n"; 	cout &lt;&lt; "6,删除\n"; 	cout &lt;&lt; "7,输出\n"; 	cout &lt;&lt; "8,退出\n"; 	choose = -1; 	while (choose != 0) { 		cout &lt;&lt; "请选择：\n"; 		cin &gt;&gt; choose; 		switch (choose) { 			//创建顺序表  			case 1: 				if(InitList(L) == 1) { 					cout &lt;&lt; "创建成功";  				} 				break; 			//顺序信息输入  			case 2: 				{ 					i = 0; 					fstream file; 					file.open("F://数据结构//线性表//book.txt"); 					if(!file) { 						cout &lt;&lt; "错误！ 未找到文件！" &lt;&lt; endl; 						continue; 					} 					file &gt;&gt; head_1 &gt;&gt; head_2 &gt;&gt; head_3; 					while (!file.eof()) { 						file &gt;&gt; L.elem[i].id &gt;&gt; L.elem[i].name &gt;&gt; L.elem[i].price; 						i++; 					} 					cout &lt;&lt;"输入 book.txt信息完毕\n\n"; 					L.length = i; 					file.close(); 				} 				break; 			//顺序表的取值  			//调用此函数：GetElem (SqList L, int i, Book &amp;e) 			case 3: 				{ 					cout &lt;&lt; "请输入一个位置用来取值:\n"; 					cin &gt;&gt;i; 					temp = GetElem(L,i,e); 	                if(temp!=0) 	                { 	                    cout&lt;&lt; "查找成功\n"; 	                    cout&lt;&lt; "第" &lt;&lt; i &lt;&lt; "本图书的信息是:\n"; 	                    cout&lt;&lt; left &lt;&lt; setw(15) &lt;&lt; e.id &lt;&lt; "\t"  ///在C++中，setw(int n)用来控制输出间隔。 	                        &lt;&lt; left &lt;&lt; setw(50) &lt;&lt; e.name &lt;&lt; "\t" 	                        &lt;&lt; left &lt;&lt; setw(5) &lt;&lt; e.price &lt;&lt; endl 	                        &lt;&lt; endl; 	                } 	                else cout&lt;&lt; "查找失败，位置超出范围！\n\n";	 				}		 				break; 			//顺序表的查找  			//调用此函数：LocatElem (SqList L, double e) 			case 4: 				{ 					cout &lt;&lt; "请输入要查找的价格：\n"; 					cin &gt;&gt; price; 					i = LocatElem(L,price); 					if (i == 0) { 						cout &lt;&lt; "查找失败！！！";  					} else { 						cout &lt;&lt; "此价格商品的序列号为：" &lt;&lt; i &lt;&lt;endl; 					} 				} 				break; 			//顺序表的插入 ， 			//调用此函数：Status ListInsert (SqList &amp;L, int i, Book e)  			case 5: 				{ 					cout &lt;&lt; "输入插入的位置,书本信息包括：编号 书名 价格"; 					cin &gt;&gt; location; 					cin &gt;&gt; e.id &gt;&gt; e.name &gt;&gt; e.price; 					i = ListInsert(L,location,e); 					if (i == 1) { 						cout &lt;&lt; "插入成功！！！"; 					} 				} 				break; 			//顺序表的删除	 			//调用此函数：Status ListDelete (SqList &amp;L, Status i)   			case 6: 				{ 					cout &lt;&lt; "请输入所要删除的书籍的位置："; 					cin &gt;&gt; location;  					if(ListDelete(L,location) == 1) { 						cout &lt;&lt; "删除成功！！！"; 					} 				} 				break; 			//顺序表的输出  			case 7: 				{ 					cout &lt;&lt; "当前图书系统的信息（顺序表）读出：\n"; 					for(i = 0; i &lt; L.length; i++ ) { 						cout &lt;&lt; left &lt;&lt;setw(15)&lt;&lt; L.elem[i].id &lt;&lt; "\t" &lt;&lt; left 						&lt;&lt; setw(50) &lt;&lt; L.elem[i].name &lt;&lt; "\t" &lt;&lt; left &lt;&lt; setw(5) 						&lt;&lt; L.elem[i].price &lt;&lt; endl; 					} 					cout &lt;&lt; endl; 				} 				break; 			case 8: 				choose = 0; 				break; 			default: 				break; 		} 	} 	return 0; } </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-45424.htm">宠物领养网免费平台有哪些呢图片和视频（宠物领养网站）</a></p>
+                                        <p>下一个：<a href="/news/article-45934.htm">开宠物店去哪里进货渠道（开宠物店去哪里进货渠道好）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-38984.htm" title="开个宠物粮加工厂需要多少钱呢 开个宠物粮加工厂需要多少钱呢视频">开个宠物粮加工厂需要多少钱呢 开个宠物粮加工厂需要多少钱呢视频</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-subscribe-node.htm" title="10月13日 | Nekobox Android每天更新18.1M/S免费节点订阅链接">10月13日 | Nekobox Android每天更新18.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19207.htm" title="动物疫苗的了解和认识（动物疫苗的了解和认识作文）">动物疫苗的了解和认识（动物疫苗的了解和认识作文）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-nekobox-node-windows.htm" title="11月26日 | Nekobox Android每天更新21.3M/S免费节点订阅链接">11月26日 | Nekobox Android每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-nekobox-node.htm" title="12月3日 | Nekobox Android每天更新19.4M/S免费节点订阅链接">12月3日 | Nekobox Android每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19664.htm" title="一个宠物店一年的纯利润（宠物店利润高吗）">一个宠物店一年的纯利润（宠物店利润高吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-nekobox-node-windows.htm" title="11月5日 | Nekobox Android每天更新19.2M/S免费节点订阅链接">11月5日 | Nekobox Android每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30325.htm" title="新手开店适合开什么店成本低的（适合新手开的店铺）">新手开店适合开什么店成本低的（适合新手开的店铺）</a></li>
+                        <li class="py-2"><a href="/news/article-40971.htm" title="动物疫苗价格表图片及价格大全图（动物疫苗多少钱一支）">动物疫苗价格表图片及价格大全图（动物疫苗多少钱一支）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share.htm" title="1月10日 | Nekobox Android每天更新18M/S免费节点订阅地址分享">1月10日 | Nekobox Android每天更新18M/S免费节点订阅地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
