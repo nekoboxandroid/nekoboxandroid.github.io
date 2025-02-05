@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-25642.htm" />
@@ -9,6 +9,33 @@
     <title>Pandas大数据量内存优化</title>
         <meta name="description" content="一、背景介绍 Pandas在处理大数据(尤其是列比较多的场景)时，如果不做优化，内存占用还是很大的，下面通过一个实例来说明可以怎样优化  首先，生成一批18万的数据，每条数据151列  import " />
         <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-25642.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="Pandas大数据量内存优化" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/a217ad75ab537247960d62eefc9a0c5c.webp" />
+        <meta property="og:release_date" content="2024-12-14T10:12:22" />
+    <meta property="og:updated_time" content="2024-12-14T10:12:22" />
+        <meta property="og:description" content="一、背景介绍 Pandas在处理大数据(尤其是列比较多的场景)时，如果不做优化，内存占用还是很大的，下面通过一个实例来说明可以怎样优化  首先，生成一批18万的数据，每条数据151列  import " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Pandas大数据量内存优化">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
@@ -77,7 +104,7 @@
                         </p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                        <img href="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
                     </div>
                 </div>
             </div>
@@ -104,16 +131,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-16-free-high-speed-nodes.htm" title="12月16日 | Nekobox Android每天更新22M/S免费节点订阅链接">12月16日 | Nekobox Android每天更新22M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-node-subscribe.htm" title="12月8日 | Nekobox Android每天更新21.9M/S免费节点订阅链接">12月8日 | Nekobox Android每天更新21.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-26-free-high-speed-nodes.htm" title="9月26日 | Nekobox Android每天更新20.1M/S免费节点订阅链接">9月26日 | Nekobox Android每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-nekobox-github.htm" title="11月21日 | Nekobox Android每天更新19.9M/S免费节点订阅链接">11月21日 | Nekobox Android每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-nekobox-node.htm" title="12月4日 | Nekobox Android每天更新21.1M/S免费节点订阅链接">12月4日 | Nekobox Android每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22408.htm" title="CSS预编译器_在线工具">CSS预编译器_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-38481.htm" title="重庆无偿领养猫猫（重庆无偿领养猫猫要求）">重庆无偿领养猫猫（重庆无偿领养猫猫要求）</a></li>
+                        <li class="py-2"><a href="/news/article-24256.htm" title="开宠物医院的条件是什么（开宠物医院需要什么条件）">开宠物医院的条件是什么（开宠物医院需要什么条件）</a></li>
                         <li class="py-2"><a href="/news/article-25186.htm" title="瑞鹏宠物医院收费价目表图片高清（瑞鹏宠物医院好吗?）">瑞鹏宠物医院收费价目表图片高清（瑞鹏宠物医院好吗?）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-nekobox-node-github.htm" title="10月30日 | Nekobox Android每天更新21.8M/S免费节点订阅链接">10月30日 | Nekobox Android每天更新21.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-17-today-nekobox-node.htm" title="11月17日 | Nekobox Android每天更新21.4M/S免费节点订阅链接">11月17日 | Nekobox Android每天更新21.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21038.htm" title="小型饲料粉碎机家用上料斗总坏咋修修（饲料粉碎机安装视频）">小型饲料粉碎机家用上料斗总坏咋修修（饲料粉碎机安装视频）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-8-latest-nekobox-node.htm" title="8月8日 | Nekobox Android每天更新22M/S免费节点订阅链接">8月8日 | Nekobox Android每天更新22M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-node-subscribe-links.htm" title="10月10日 | Nekobox Android每天更新19.4M/S免费节点订阅链接">10月10日 | Nekobox Android每天更新19.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-nekobox-node.htm" title="10月11日 | Nekobox Android每天更新20.4M/S免费节点订阅链接">10月11日 | Nekobox Android每天更新20.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-nekobox-node.htm" title="12月31日 | Nekobox Android每天更新21.1M/S免费节点订阅地址分享">12月31日 | Nekobox Android每天更新21.1M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-44942.htm" title="綦江区旅游景点有哪些图片(綦江区旅游景点有哪些地方)">綦江区旅游景点有哪些图片(綦江区旅游景点有哪些地方)</a></li>
+                        <li class="py-2"><a href="/news/article-36046.htm" title="python end用法_python end用法">python end用法_python end用法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-latest-nekobox-node.htm" title="12月14日 | Nekobox Android每天更新19.7M/S免费节点订阅链接">12月14日 | Nekobox Android每天更新19.7M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -125,22 +152,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

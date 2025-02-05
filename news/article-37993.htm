@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-37993.htm" />
@@ -9,6 +9,33 @@
     <title>inner join 和 exists 效率_19条效率至少提高3倍的MySQL技巧</title>
         <meta name="description" content="本文我们来谈谈项目中常用的MySQL优化方法，共19条，具体如下： 1、EXPLAIN 做MySQL优化，我们要善用EXPLAIN查看SQL执行计划。 下面来个简单的示例，标注(1、2、3、4、5)我" />
         <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-37993.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="inner join 和 exists 效率_19条效率至少提高3倍的MySQL技巧" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/eae03542a80077205c0d8f1a5fac97b7.webp" />
+        <meta property="og:release_date" content="2025-01-09T05:59:24" />
+    <meta property="og:updated_time" content="2025-01-09T05:59:24" />
+        <meta property="og:description" content="本文我们来谈谈项目中常用的MySQL优化方法，共19条，具体如下： 1、EXPLAIN 做MySQL优化，我们要善用EXPLAIN查看SQL执行计划。 下面来个简单的示例，标注(1、2、3、4、5)我" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="inner join 和 exists 效率_19条效率至少提高3倍的MySQL技巧">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
@@ -77,7 +104,7 @@
                         </p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                        <img href="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
                     </div>
                 </div>
             </div>
@@ -104,16 +131,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-30-free-high-speed-nodes.htm" title="12月30日 | Nekobox Android每天更新18.1M/S免费节点订阅地址分享">12月30日 | Nekobox Android每天更新18.1M/S免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/news/article-26090.htm" title="动物疫苗价格查询官网入口网址是多少啊（动物疫苗接种）">动物疫苗价格查询官网入口网址是多少啊（动物疫苗接种）</a></li>
-                        <li class="py-2"><a href="/news/article-19663.htm" title="宠物粮食创业项目名称大全图片（宠物粮食行业发展前景）">宠物粮食创业项目名称大全图片（宠物粮食行业发展前景）</a></li>
+                        <li class="py-2"><a href="/news/article-22868.htm" title="深圳动物打疫苗需要钱吗现在（深圳动物防疫所）">深圳动物打疫苗需要钱吗现在（深圳动物防疫所）</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-16-free-node-subscribe.htm" title="11月16日 | Nekobox Android每天更新18.4M/S免费节点订阅链接">11月16日 | Nekobox Android每天更新18.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-subscribe-node.htm" title="10月8日 | Nekobox Android每天更新18.7M/S免费节点订阅链接">10月8日 | Nekobox Android每天更新18.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-28899.htm" title="动物打疫苗打几次最好（动物打防疫针多少钱）">动物打疫苗打几次最好（动物打防疫针多少钱）</a></li>
-                        <li class="py-2"><a href="/news/article-34615.htm" title="我所在的城市有一家动物医院的英语怎么写（在我的城市有一家宠物医院的英语怎么说）">我所在的城市有一家动物医院的英语怎么写（在我的城市有一家宠物医院的英语怎么说）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-subscribe-node.htm" title="10月13日 | Nekobox Android每天更新18.1M/S免费节点订阅链接">10月13日 | Nekobox Android每天更新18.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-34612.htm" title="动物疫苗行业排名榜前十 动物疫苗行业排名榜前十名">动物疫苗行业排名榜前十 动物疫苗行业排名榜前十名</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-13-nekobox-node-github.htm" title="11月13日 | Nekobox Android每天更新21.1M/S免费节点订阅链接">11月13日 | Nekobox Android每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46410.htm" title="动物医院大众点评评语怎么写啊 动物医院大众点评评语怎么写啊英语">动物医院大众点评评语怎么写啊 动物医院大众点评评语怎么写啊英语</a></li>
+                        <li class="py-2"><a href="/news/article-25644.htm" title="小动物医院情景剧（动物医院故事）">小动物医院情景剧（动物医院故事）</a></li>
+                        <li class="py-2"><a href="/news/article-29360.htm" title="孕妇被猫抓流血了,会影响胎儿发育吗（孕妇被猫抓流血了,会影响胎儿发育吗视频）">孕妇被猫抓流血了,会影响胎儿发育吗（孕妇被猫抓流血了,会影响胎儿发育吗视频）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-nekobox-node.htm" title="11月6日 | Nekobox Android每天更新20.1M/S免费节点订阅链接">11月6日 | Nekobox Android每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38481.htm" title="重庆无偿领养猫猫（重庆无偿领养猫猫要求）">重庆无偿领养猫猫（重庆无偿领养猫猫要求）</a></li>
+                        <li class="py-2"><a href="/news/article-21954.htm" title="天津宠物博览会官网 天津宠物博览会官网预约">天津宠物博览会官网 天津宠物博览会官网预约</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-nekobox-node.htm" title="1月4日 | Nekobox Android每天更新19.8M/S免费节点订阅地址分享">1月4日 | Nekobox Android每天更新19.8M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-43444.htm" title="宠物粮厂家利润多少钱一个月（宠物粮利润是多少）">宠物粮厂家利润多少钱一个月（宠物粮利润是多少）</a></li>
                     </ul>
     </div>
 </div>
@@ -125,16 +152,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
