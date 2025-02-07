@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-51987.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>mongodb开发&#8212;GridFS文件存储</title>
+        <meta name="description" content="GridFS是MongoDB中的一个内置功能，可以用于存放大量小文件。 GridFS使用两集合来存储文件的元数据和内容。文件的元数据存储在文件集合中，文件的内容存储在块集合中。  两集合以FS。默认使" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-51987.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="mongodb开发&#8212;GridFS文件存储" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/9f6fbafd14e1616872a10832a3945402.webp" />
+        <meta property="og:release_date" content="2025-02-06T05:28:48" />
+    <meta property="og:updated_time" content="2025-02-06T05:28:48" />
+        <meta property="og:description" content="GridFS是MongoDB中的一个内置功能，可以用于存放大量小文件。 GridFS使用两集合来存储文件的元数据和内容。文件的元数据存储在文件集合中，文件的内容存储在块集合中。  两集合以FS。默认使" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mongodb开发&#8212;GridFS文件存储">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li><a href="#">关于</a></li>
+                            <li><a href="#">联系</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>mongodb开发&#8212;GridFS文件存储</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views">                     <span style="font-size:18px"><span style="white-space:pre"></span>GridFS是MongoDB中的一个内置功能，可以用于存放大量小文件。<br /> GridFS使用两集合来存储文件的元数据和内容。文件的元数据存储在文件集合中，文件的内容存储在块集合中。<br /></span> </p> <p><span style="font-size:18px">两集合以FS。默认使用fs.chunks和fs.files来存储文件。其中fs.files集合存放文件的信息，fs.chunks存放文件数据。</span></p> <p><span style="font-size:18px"><span style="color:#33ccff">有些内容参考自 http://www.server110.com/mongodb/201404/10124.html</span></span></p> <p><span style="font-size:18px">下面是具体的使用方式：</span></p> <p><span style="font-size:18px"><span style="white-space:pre"></span></span></p> <pre><code class="language-java">1.引入spring-boot-starter-data-mongodb的依赖。 	&lt;dependency&gt; 		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; 		&lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt; 	&lt;/dependency&gt;  2.注入模版 	@Autowired 	MongoTemplate mongoTemplate ; 	 	@Autowired 	MongoDbFactory dbFactory ; 3.创建GridFsTemplate模版 	GridFsTemplate gridfsTemplate = new GridFsTemplate(dbFactory, mongoTemplate.getConverter()) ; 4.保存文件 	gridfsTemplate.store(content, filename, contentType, metadata) 	gridfsTemplate.store(file.getInputStream(), fileName, file.getContentType(), metadata); 5.查找文件 	GridFsTemplate gridfsTemplate = new GridFsTemplate(dbFactory, mongoTemplate.getConverter()) ; 		 	Query query = new Query() ; 	 	//查询条件设置 	GridFsCriteria.whereContentType() 	GridFsCriteria.where(key) 	GridFsCriteria.whereMetaData(metadataKey) 	 	Criteria  criteria = GridFsCriteria.whereFilename() ; 	criteria.is(fileName) ;		 	query.addCriteria(criteria); 		 	Order order = new Order(Sort.Direction.DESC, "uploadDate") ; 	Sort sort = new Sort(order) ; 	query.with(sort); 	 	GridFSDBFile gridFils = gridfsTemplate.findOne(query)	 	List&lt;GridFSDBFile&gt; gridFils = gridfsTemplate.find(query) ; 	 	 	//输入到指定的流、文件、获取输入流。 	dbFile.writeTo(Outputstram out ) 	dbFile.getInputStream() 	dbFile.writeTo(file) 	 	//根据文件名查询文件（可以带正则表达式），返回一个Resource 	GridFsResource[] gridFsResource = gridFsTemplate.getResources("test*"); 	  6.删除文件 	gridfsTemplate.delete(query);  讲GridFSDBFile有什么方法。  GridFSDBFile  Core Methods  	The GridFSDBFile  API is quite simple as well:  	getInputStream – returns an InputStream from which data can be read 	getFilename – gets the filename of the file 	getMetaData – gets the metadata for the given file 	containsField – determines if the document contains a field with the given name 	get – gets a field from the object by name 	getId – gets the file’s object ID 	keySet – gets the object’s field names  注意事项 1. GridFS不自动处理md5相同的文件，对于md5相同的文件，如果想在GridFS中只有一个存储，要用户自已处理。 Md5值的计算由客户端完成。 2. 因为GridFS在上传文件过程中是先把文件数据保存到fs.chunks，最后再把文件信息保存到fs.files中，所以 如果在上传文件过程中失败，有可能在fs.chunks中出现垃圾数据。这些垃圾数据可以定期清理掉。</code></pre> <p>                 </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51986.htm">字符动态数组 c语言,用C语言实现一个动态数组</a></p>
+                                        <p>下一个：<a href="/news/article-52517.htm">成都宠物领养平台电话是多少号码（成都宠物领养中心电话）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-41453.htm" title="公务员2021国考报名时间 公务员2021国考报名时间表">公务员2021国考报名时间 公务员2021国考报名时间表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-node-subscribe.htm" title="12月29日 | Nekobox Android每天更新19.2M/S免费节点订阅地址分享">12月29日 | Nekobox Android每天更新19.2M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-25644.htm" title="小动物医院情景剧（动物医院故事）">小动物医院情景剧（动物医院故事）</a></li>
+                        <li class="py-2"><a href="/news/article-47397.htm" title="成都领养宠物中心公众号（成都宠物领养平台交流微信群）">成都领养宠物中心公众号（成都宠物领养平台交流微信群）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-free-subscribe-node.htm" title="1月21日 | Nekobox Android每天更新18.7M/S免费节点订阅地址分享">1月21日 | Nekobox Android每天更新18.7M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-44941.htm" title="同城免费领养宠物诈骗案例（同城免费领养宠物诈骗案例分享）">同城免费领养宠物诈骗案例（同城免费领养宠物诈骗案例分享）</a></li>
+                        <li class="py-2"><a href="/news/article-19663.htm" title="宠物粮食创业项目名称大全图片（宠物粮食行业发展前景）">宠物粮食创业项目名称大全图片（宠物粮食行业发展前景）</a></li>
+                        <li class="py-2"><a href="/news/article-33656.htm" title="中国十大宠物粮上市公司排名前十名有哪些（中国宠物粮生产企业）">中国十大宠物粮上市公司排名前十名有哪些（中国宠物粮生产企业）</a></li>
+                        <li class="py-2"><a href="/news/article-29361.htm" title="厦门宠物寄养哪里好 厦门宠物寄养哪里好点">厦门宠物寄养哪里好 厦门宠物寄养哪里好点</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-node-subscribe.htm" title="12月8日 | Nekobox Android每天更新21.9M/S免费节点订阅链接">12月8日 | Nekobox Android每天更新21.9M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

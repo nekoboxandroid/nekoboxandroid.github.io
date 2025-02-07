@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-51986.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>字符动态数组 c语言,用C语言实现一个动态数组</title>
+        <meta name="description" content="上两篇文章给出了词法分析的完整代码： 用C语言实现一个真正的词法分析器 用C语言写一个真正的词法分析器，细节代码 它只需要动态字符串和双向链表，这两个基础数据结构就可以。 接下来，是比较有难度的语法分" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-51986.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="字符动态数组 c语言,用C语言实现一个动态数组" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/4c4c52ab4b18d8d89515f9d5a4c7332a.webp" />
+        <meta property="og:release_date" content="2025-02-06T05:28:48" />
+    <meta property="og:updated_time" content="2025-02-06T05:28:48" />
+        <meta property="og:description" content="上两篇文章给出了词法分析的完整代码： 用C语言实现一个真正的词法分析器 用C语言写一个真正的词法分析器，细节代码 它只需要动态字符串和双向链表，这两个基础数据结构就可以。 接下来，是比较有难度的语法分" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="字符动态数组 c语言,用C语言实现一个动态数组">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li><a href="#">关于</a></li>
+                            <li><a href="#">联系</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>字符动态数组 c语言,用C语言实现一个动态数组</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>上两篇文章给出了词法分析的完整代码：</p> <p>用C语言实现一个真正的词法分析器</p> <p>用C语言写一个真正的词法分析器，细节代码</p> <p>它只需要动态字符串和双向链表，这两个基础数据结构就可以。</p> <p>接下来，是比较有难度的语法分析。</p> <p>在说语法分析之前，先说一个基础的数据结构：动态数组。</p> <p>动态数组，也就是C++的STL模板类中的vector。</p> <p>C语言没有自带的vector，需要自己做个简单的实现。</p> <p>动态数组，首先是一个数组，它的所有元素都可以通过数组索引访问，随机访问的效率是O(1)。</p> <p>其次，它与通常的固定数组一样，可以使用索引正向或反向遍历。例如：</p> <p>for (i = 0; i &lt; vec-&gt;size; i++);</p> <p>for (i = vec-&gt;size - 1; i &gt;= 0; i--);</p> <p>vec为动态数组的结构体指针，vec-&gt;size为它当前存储的元素个数。</p> <p>再就是，它可以存储多种数据类型，即可以作为基础数据结构使用，而与所存储的数据类型无关。</p> <p>最后，与固定数组不同，它可以随着元素的增加或删除，动态地改变大小。</p> <p>它的所有元素，自然是顺序存储的，而且每个元素的大小一致。</p> <p>在C语言中，一个可行的办法就是，只让它存储void*类型的指针：如果存储复杂的结构体类型，那么只存储结构体的指针；如果存储数字，因为指针的大小是机器的字长，数字的大小不会超过这个值，所以可以把数字当作void*类型存储。</p> <p>具体定义如下图：</p> <p>数据部分是二级指针void** data，它的每个元素都是void*类型。</p> <p>capacity表示当前的最大容量，size表示当前的元素个数。</p> <p>在最大容量不够时，每次增加16个位置，这样可以减少realloc()的次数。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230210/c1e06d0e818da440ce295e8a9f445a34.jpg" alt="字符动态数组 c语言,用C语言实现一个动态数组"></p> <p>上图为scf_vector_alloc()和scf_vector_clone()函数，</p> <p>下图为scf_vector_add()和scf_vector_del()函数。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230210/e7ce5a42488afb135eeaf555901d449b.jpg" alt="字符动态数组 c语言,用C语言实现一个动态数组"></p> <p>因为要保持元素的连续存储，删除的复杂度与双链表不一样，需要移动后半部分的元素，这个复杂度不是O(1)，而是O(N)。</p> <p>如果删除元素之后，空闲的内存过多，则执行realloc()从新分配小一点的内存，把不用的部分及时还给系统。</p> <p>下图是scf_vector_find()、scf_vector_find_cmp()、scf_vector_qsort()，分别用于查找元素，根据传入的cmp函数指针查找元素，以及给元素排序。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230210/b987da751515675b0200f9abe5132837.jpg" alt="字符动态数组 c语言,用C语言实现一个动态数组"></p> <p>再就是提供两个函数scf_vector_clear()和scf_vector_free()。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230210/f69cf3af1c3e6d32cfb83021b18e5a0c.jpg" alt="字符动态数组 c语言,用C语言实现一个动态数组"></p> <p>scf_vector_clear()，如果需要在销毁动态数组之前释放所存储的元素的内存，可以先调用这个函数(需要传入释放元素内存的free函数指针)，然后再调用scf_vector_free()。</p> <p>如果所存储的元素没有占用额外的内存，例如是个被当作void*存储的数字，就可以直接调用scf_vector_free()。</p> <p>动态数组的实现还是比较简单的，因为都是一些小函数，直接static inline写在头文件里了。</p> <p>最后，使用这个动态数组实现一个数据结构：栈。</p> <p>栈，在语法分析时使用的比较多，因为语法分析存在大量的复杂递归，需要栈来保存上下文。</p> <p>栈，也是个动态数组，区别就是只从最后一个元素添加、删除、访问。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230210/1d1166d3611c0cb61a1d1d63489cccd1.jpg" alt="字符动态数组 c语言,用C语言实现一个动态数组"></p> <p>scf_stack_push()，用于压栈。</p> <p>scf_stack_pop()，用于出栈。</p> <p>scf_stack_top()，用于访问栈顶元素，它与scf_stack_pop()的区别就是它不会把栈顶元素弹出，不会改变栈的大小。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230210/6935336a2c32addf11bd0e47d3448fe3.jpg" alt="字符动态数组 c语言,用C语言实现一个动态数组"></p> <p>下一篇，说一下有限自动机的实现，使用它来分析语法。</p> <p>举报/反馈</p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51454.htm">在react中使用event(事件对象)，如何使用，注意事项和react中如何定义和使用函数？</a></p>
+                                        <p>下一个：<a href="/news/article-51987.htm">mongodb开发&#8212;GridFS文件存储</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-nekobox-node.htm" title="1月17日 | Nekobox Android每天更新22.5M/S免费节点订阅地址分享">1月17日 | Nekobox Android每天更新22.5M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-44441.htm" title="动物疫苗接种技术实训报告（动物疫苗接种技术实训报告总结）">动物疫苗接种技术实训报告（动物疫苗接种技术实训报告总结）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-free-subscribe-node.htm" title="1月21日 | Nekobox Android每天更新18.7M/S免费节点订阅地址分享">1月21日 | Nekobox Android每天更新18.7M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-nekobox-node.htm" title="12月4日 | Nekobox Android每天更新21.1M/S免费节点订阅链接">12月4日 | Nekobox Android每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-51987.htm" title="mongodb开发&#8212;GridFS文件存储">mongodb开发&#8212;GridFS文件存储</a></li>
+                        <li class="py-2"><a href="/news/article-27039.htm" title="宠物疫苗查询系统（宠物疫苗接种查询系统）">宠物疫苗查询系统（宠物疫苗接种查询系统）</a></li>
+                        <li class="py-2"><a href="/news/article-49386.htm" title="哈尔滨宠物上门回收电话（哈尔滨宠物狗上门回收）">哈尔滨宠物上门回收电话（哈尔滨宠物狗上门回收）</a></li>
+                        <li class="py-2"><a href="/news/article-21494.htm" title="FreeRTOS进阶之空闲任务示例完全解析_操作系统_">FreeRTOS进阶之空闲任务示例完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/news/article-42448.htm" title="PHP取消引用方法详解">PHP取消引用方法详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-nekobox-node-windows.htm" title="11月5日 | Nekobox Android每天更新19.2M/S免费节点订阅链接">11月5日 | Nekobox Android每天更新19.2M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
