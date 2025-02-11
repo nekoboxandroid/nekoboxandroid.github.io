@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-54678.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>mysql timestamp_MySQL中的时间字段的几种数据类型比较</title>
+        <meta name="description" content="1.序言  最近在项目开发时，对于MySQL数据库中的有关时间的字段该选用何种类型，引发了一些争论。所以做了一些简单的研究，看了一些blog，和官方文档。最后做出一个自己的总结。 2.类型比较 INT" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-54678.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="mysql timestamp_MySQL中的时间字段的几种数据类型比较" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/b42359a344a08ee40e32cc5816ecff31.webp" />
+        <meta property="og:release_date" content="2025-02-11T05:42:51" />
+    <meta property="og:updated_time" content="2025-02-11T05:42:51" />
+        <meta property="og:description" content="1.序言  最近在项目开发时，对于MySQL数据库中的有关时间的字段该选用何种类型，引发了一些争论。所以做了一些简单的研究，看了一些blog，和官方文档。最后做出一个自己的总结。 2.类型比较 INT" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mysql timestamp_MySQL中的时间字段的几种数据类型比较">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>mysql timestamp_MySQL中的时间字段的几种数据类型比较</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220601/0f53b1b2a8bf25e12c64ae28c986bede.jpg" alt="mysql timestamp_MySQL中的时间字段的几种数据类型比较"></div> <h2>1.序言</h2> <p> 最近在项目开发时，对于MySQL数据库中的有关时间的字段该选用何种类型，引发了一些争论。所以做了一些简单的研究，看了一些blog，和官方文档。最后做出一个自己的总结。</p> <h2>2.类型比较</h2> <h2>INT</h2> <p> INT类型一般用于存储Unix时间戳。使用一个简单的 INT 列保存 Unix 时间是最普通的方法。使用 INT，你可以确保你要保存的数字可以快速、可靠地插入到表中。</p> <ul> <li> 占用4个字节</li> <li> 建立索引之后，查询速度快</li> <li> 条件范围搜索可以使用使用between</li> <li> 不能使用MySQL提供的时间函数<br /> 如果只是存储 Unix 时间戳（并且在它的合法日期范围内），而且不打算在它上面使用任何基于日期的查询，我觉得使用 INT 是可以的。它执行简单数值比较查询时非常快，因为只是在处理简单的数字。</li> </ul> <p><b>结论：</b>适合需要进行大量时间范围查询的数据表</p> <h2>TIMESTAMP和DATETIME</h2> <p> Datetime 和 Timestamp 都保存日期和时间信息，同时，使用人类可读的日期形式，如 "2018-01-01"。</p> <blockquote><p>    TIMESTAMP: A four-byte integer representing seconds UTC since the epoch ('1970-01-01 00:00:00' UTC)</p></blockquote> <p> TIMESTAMP：一个四字节的整数，从1970-01-01 00:00:00开始算起。</p> <p> Timestamp 和 Datetime 的核心不同点主要在于 MySQL在内部如何表示这些信息：<b>两种都以二进制而非字符串形式存储</b>，但在表示日期/时间部分时 Timestamp （4 字节） 比 Datetime （5字节，从MySQL 5.6.4版本起，之前为8个字节） 少使用 1 字节。当保存毫秒部分时两种都使用额外的空间 （1到3 字节）。</p> <ul> <li>非分数部分的DATETIME编码（5.6.4版本之后）：</li> </ul> <div class="has"> <pre><code>1 bit  sign           （1= non-negative, 0= negative)    17 bits year*13+month  (year 0-9999, month 0-12)     5 bits day             (0-31)     5 bits hour            (0-23)     6 bits minute          (0-59)     6 bits second          (0-59) ----------------------------- 40 bits = 5 bytes</code></pre> </div> <p>Timestamp 节省的 1 字节是有代价的：你只能存储从 '1970-01-01 00:00:01.000000' 到 '2038-01-19 03:14:07.999999' 之间的时间。而 Datetime 允许你存储从 '1000-01-01 00:00:00.000000' 到 '9999-12-31 23:59:59.999999' 之间的任何时间。</p> <p>另一个重要的差别是MySQL使用<b>服务器的时区</b>转换Timestamp值到它的 UTC 等价值再保存。当获取值是它会再次进行时区转换，所以你得回了你“原始的”日期/时间值。Datetime 列不会被数据库改变。无论时区怎样配置，每次都会保存和获取到同样的值。</p> <p>在5.6版本之后，datetime开始可以使用current time作为默认值，所以不再有timestamp比datetime更适合作为需要随插入和更新来变更时间的类型的说法。</p> <p><b>结论：</b>Datetime 是大多数场景下的最佳选择，理由是</p> <blockquote><p>    无需任何转换即是人类可读的。<br /> 不会因为时区变换产生问题。<br /> 只比TIMESTAMP多用 1 字节<br /> 支持更大的日期范围（从 1000 年到 9999 年）</p></blockquote> <h2>3.总结</h2> <p> 没有完美的数据类型，只要最合适的数据类型。这么多类型同时存在一定是有其道理的，了解清楚了不同类型的差异，就能选择最合适的类型。</p> <p>参考：</p> <p>[1]: https://www.jb51.net/article/125715.htm 解析MySQL中存储时间日期类型的选择问题</p> <p>[2]: https://dev.mysql.com/doc/internals/en/date-and-time-data-type-representation.html Date and Time Data Type Representation</p> <p>[3]: https://www.jianshu.com/p/ec77b0631886 MySQL中你应该使用什么数据类型表示时间？</p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54118.htm">ClickHouse 对付单表上亿条记录分组查询秒出, OLAP应用秒杀其他数据库_在线工具</a></p>
+                                        <p>下一个：<a href="/news/article-54679.htm">小孩被猫抓伤了多久过安全期（小孩被猫抓伤多久会发病）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-47887.htm" title="狗粮品牌都有哪些（狗粮品牌都有哪些）">狗粮品牌都有哪些（狗粮品牌都有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-36047.htm" title="宠物狗狗免费领养网询问（正规免费领养宠物狗）">宠物狗狗免费领养网询问（正规免费领养宠物狗）</a></li>
+                        <li class="py-2"><a href="/news/article-21038.htm" title="小型饲料粉碎机家用上料斗总坏咋修修（饲料粉碎机安装视频）">小型饲料粉碎机家用上料斗总坏咋修修（饲料粉碎机安装视频）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-high-speed-nodes.htm" title="1月29日 | Nekobox Android每天更新21.8M/S免费节点订阅地址分享">1月29日 | Nekobox Android每天更新21.8M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-45423.htm" title="领养宠物协议合法吗知乎（领养宠物协议书在法律上属于什么合同）">领养宠物协议合法吗知乎（领养宠物协议书在法律上属于什么合同）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-latest-nekobox-node.htm" title="12月15日 | Nekobox Android每天更新20.1M/S免费节点订阅链接">12月15日 | Nekobox Android每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-node-subscribe.htm" title="11月10日 | Nekobox Android每天更新19.6M/S免费节点订阅链接">11月10日 | Nekobox Android每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-47397.htm" title="成都领养宠物中心公众号（成都宠物领养平台交流微信群）">成都领养宠物中心公众号（成都宠物领养平台交流微信群）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-nekobox-node.htm" title="11月15日 | Nekobox Android每天更新21.5M/S免费节点订阅链接">11月15日 | Nekobox Android每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25187.htm" title="一家宠物店每月给购买猫粮5kg的顾客6折优惠价格（宠物店猫粮狗粮一个月需要多少钱?）">一家宠物店每月给购买猫粮5kg的顾客6折优惠价格（宠物店猫粮狗粮一个月需要多少钱?）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
