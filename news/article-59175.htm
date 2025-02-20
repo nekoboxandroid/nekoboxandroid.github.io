@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-59175.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>springboot(十四)使用spring retry</title>
+        <meta name="description" content="在调用第三方接口或者使用mq时，会出现网络抖动，连接超时等网络异常，所以需要重试。 1、引入jar包 &lt;dependency&gt; 			&lt;groupId&gt;org.springfr" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-59175.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="springboot(十四)使用spring retry" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/68a2397f2a20b18df34051a474f48192.webp" />
+        <meta property="og:release_date" content="2025-02-19T06:36:14" />
+    <meta property="og:updated_time" content="2025-02-19T06:36:14" />
+        <meta property="og:description" content="在调用第三方接口或者使用mq时，会出现网络抖动，连接超时等网络异常，所以需要重试。 1、引入jar包 &lt;dependency&gt; 			&lt;groupId&gt;org.springfr" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot(十四)使用spring retry">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>springboot(十四)使用spring retry</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>在调用第三方接口或者使用mq时，会出现网络抖动，连接超时等网络异常，所以需要重试。</p> <p>1、引入jar包</p> <pre><code class="language-java">&lt;dependency&gt; 			&lt;groupId&gt;org.springframework.retry&lt;/groupId&gt; 			&lt;artifactId&gt;spring-retry&lt;/artifactId&gt; 		&lt;/dependency&gt; 		&lt;dependency&gt; 			&lt;groupId&gt;org.aspectj&lt;/groupId&gt; 			&lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt; 		&lt;/dependency&gt;</code></pre> <p> 2、模拟网络异常，创建一个异常</p> <pre><code class="language-java">package com.demo.exception;  import lombok.Builder; import lombok.Getter;  /**  * Created by huguoju on 2017/4/13.  */ @Builder @Getter public class RetryException extends RuntimeException {     private String code;     private String message; }</code></pre> <p></p> <p>3、在Application上添加@EnableRetry开启Retry服务</p> <pre><code class="language-java">@EnableRetry public class SpringbootApplication {<!-- --></code></pre> <p> 4、在service模拟访问异常，抛出异常</p> <pre><code class="language-java">package com.demo.service.impl;  import com.demo.exception.RetryException; import com.demo.service.RetryService; import lombok.extern.slf4j.Slf4j; import org.springframework.retry.annotation.Backoff; import org.springframework.retry.annotation.Recover; import org.springframework.retry.annotation.Retryable; import org.springframework.stereotype.Service;  /**  * Created by huguoju on 2017/4/13.  */ @Service("retryService") @Slf4j public class RetryServiceImpl implements RetryService {     int i=1;     @Override     @Retryable(value = {RuntimeException.class},maxAttempts = 4,backoff = @Backoff(delay = 1000l,multiplier = 1))     public String retry() {         log.info("测试retry");         i++;//生产环境此处应该为调用第三方接口，判断接口返回code         if(i==3){             return i+"";         }         RetryException retryException=RetryException.builder().code("9999").message("连接超时").build();         throw retryException;     }        @Recover     public String recover(RetryException e){         log.info(e.getMessage());         return "6";     } }</code></pre> <p> 说明：</p> <pre style="background-color:rgb(255,255,255)"><span style="color:#808000; font-size:13.5pt; font-family:宋体">@Retryable：标注此注解的方法在发生异常时会进行重试</span><pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)">参数说明：value：抛出指定异常才会重试</pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)">          include：和value一样，默认为空，当exclude也为空时，默认所以异常</pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)">          exclude：指定不处理的异常</pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)">          maxAttempts:最大重试次数，默认3次</pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)">          backoff：重试等待策略，默认使用@Backoff，@Backoff的value默认为1000L，multiplier（指定延迟倍数）</pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)">                   默认为0，表示固定暂停1秒后进行重试，如果把multiplier设置为2，则第一次重试为1秒，第二次为</pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)">                   2秒，第三次为4秒</pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)">@Recover：用于@Retryable重试失败后处理方法，此方法里的异常一定要是@Retryable方法里抛出的异常，否则不会调用</pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)">          这个方法</pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)"></pre> <pre style="font-size:13.5pt; font-family:宋体; color:rgb(128,128,0); background-color:rgb(255,255,255)"></pre> <pre style="color:rgb(128,128,0); background-color:rgb(255,255,255)"><span style="font-family:SimSun; font-size:10px"></span></pre> <pre style="background-color:rgb(255,255,255)"><span style="font-family:SimSun; font-size:10px">5、在其他service里调用上面的service抛出异常</span></pre> <pre style="background-color:rgb(255,255,255)"><span style="font-family:SimSun; font-size:10px"></span><pre><code class="language-cpp">@Override     public Map testRetry() {         Map map= Maps.newHashMap();         String s=retryService.retry();         if (s.equals("3")){             log.info("成功啦啦啦啦啦啦啦啦");         }else {             log.info("失败了");         }         map.put("result",s);         return map;     }</code></pre> <p></p> <pre style="background-color:rgb(255,255,255)"><span style="font-family:SimSun; font-size:10px">6、定义测试controller</span></pre> <pre style="background-color:rgb(255,255,255)"><span style="font-family:SimSun; font-size:10px"></span><pre><code class="language-java">package com.demo.controller;  import com.demo.service.RetryService; import com.demo.service.TestService; import com.google.common.collect.Maps; import io.swagger.annotations.Api; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.http.MediaType; import org.springframework.web.bind.annotation.RequestMapping; import org.springframework.web.bind.annotation.RequestMethod; import org.springframework.web.bind.annotation.RestController;  import java.util.Map;  /**  * Created by huguoju on 2017/4/13.  */ @RestController @RequestMapping("retry") @Api(value = "重试机制",tags = "重试机制") public class RetryController {     @Autowired     public TestService testService;     @RequestMapping(value = "testRetry",method = {RequestMethod.POST,RequestMethod.GET},produces = MediaType.APPLICATION_JSON_UTF8_VALUE)     public Map testRetry(){         Map map=Maps.newHashMap();         try {             map= testService.testRetry();             return map;         }catch (Exception e){             e.printStackTrace();             return map;         }     } }</code></pre> <p>访问controller，看日志输出</p> <pre style="background-color:rgb(255,255,255)"><span style="font-family:SimSun; font-size:10px"></span><pre><code class="language-java">15:21:30 WARN  [qtp1129243682-21]  com.atomikos.icatch.imp.TransactionServiceImp - Attempt to create a transaction with a timeout that exceeds com.atomikos.icatch.max_timeout - truncating to: 300000 15:21:30 INFO  [qtp1129243682-21]  com.atomikos.icatch.imp.BaseTransactionManager - createCompositeTransaction ( 10000000 ): created new ROOT transaction with id 10.3.5.31.tm0000100002 15:21:30 INFO  [qtp1129243682-21]  com.demo.service.impl.RetryServiceImpl - 测试retry 15:21:31 INFO  [qtp1129243682-21]  com.demo.service.impl.RetryServiceImpl - 测试retry 15:21:31 INFO  [qtp1129243682-21]  com.demo.service.impl.TestServiceImpl - 成功啦啦啦啦啦啦啦啦 15:21:31 INFO  [qtp1129243682-21]  com.atomikos.icatch.imp.CompositeTransactionImp - commit() done (by application) of transaction 10.3.5.31.tm0000100002</code></pre> <p>要测试@Recover，即一直异常，只需要把RetryServiceImpl里的if(i==3)改为if(i==6),把调用service里if(s.equals("3"))改完if(s.equals("6)),然后重新访问，日志：</p> <pre style="background-color:rgb(255,255,255)"><span style="font-family:SimSun; font-size:10px"></span><pre><code class="language-java">15:26:54 WARN  [qtp1870436181-20]  com.atomikos.icatch.imp.TransactionServiceImp - Attempt to create a transaction with a timeout that exceeds com.atomikos.icatch.max_timeout - truncating to: 300000 15:26:54 INFO  [qtp1870436181-20]  com.atomikos.icatch.imp.BaseTransactionManager - createCompositeTransaction ( 10000000 ): created new ROOT transaction with id 10.3.5.31.tm0000100003 15:26:54 INFO  [qtp1870436181-20]  com.demo.service.impl.RetryServiceImpl - 测试retry 15:26:55 INFO  [qtp1870436181-20]  com.demo.service.impl.RetryServiceImpl - 测试retry 15:26:56 INFO  [qtp1870436181-20]  com.demo.service.impl.RetryServiceImpl - 测试retry 15:26:57 INFO  [qtp1870436181-20]  com.demo.service.impl.RetryServiceImpl - 测试retry 15:26:57 INFO  [qtp1870436181-20]  com.demo.service.impl.RetryServiceImpl - 连接超时 15:26:57 INFO  [qtp1870436181-20]  com.demo.service.impl.TestServiceImpl - 成功啦啦啦啦啦啦啦啦 15:26:57 INFO  [qtp1870436181-20]  com.atomikos.icatch.imp.CompositeTransactionImp - commit() done (by application) of transaction 10.3.5.31.tm0000100003</code></pre> <pre style="background-color:rgb(255,255,255)"><span style="font-family:SimSun; font-size:10px"></span></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58678.htm">附近宠物领养店电话地址（宠物领养站哪里有）</a></p>
+                                        <p>下一个：<a href="/news/article-59176.htm">宠物粮进货渠道在哪里啊知乎（宠物粮进货平台）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-33177.htm" title="机器学习系列：LightGBM 可视化调参">机器学习系列：LightGBM 可视化调参</a></li>
+                        <li class="py-2"><a href="/news/article-25187.htm" title="一家宠物店每月给购买猫粮5kg的顾客6折优惠价格（宠物店猫粮狗粮一个月需要多少钱?）">一家宠物店每月给购买猫粮5kg的顾客6折优惠价格（宠物店猫粮狗粮一个月需要多少钱?）</a></li>
+                        <li class="py-2"><a href="/news/article-59749.htm" title="宠物猫驱虫多少钱一次4只（宠物猫驱虫多少钱一次4只狗）">宠物猫驱虫多少钱一次4只（宠物猫驱虫多少钱一次4只狗）</a></li>
+                        <li class="py-2"><a href="/news/article-22868.htm" title="深圳动物打疫苗需要钱吗现在（深圳动物防疫所）">深圳动物打疫苗需要钱吗现在（深圳动物防疫所）</a></li>
+                        <li class="py-2"><a href="/news/article-39463.htm" title="2020上海宠物领养日 2020上海宠物领养日期查询">2020上海宠物领养日 2020上海宠物领养日期查询</a></li>
+                        <li class="py-2"><a href="/news/article-47888.htm" title="中国最大猫粮生产基地排名 中国最大猫粮生产基地排名前十">中国最大猫粮生产基地排名 中国最大猫粮生产基地排名前十</a></li>
+                        <li class="py-2"><a href="/news/article-41961.htm" title="重庆宠物领养吧百度贴吧招聘（重庆宠物领养吧百度贴吧招聘电话）">重庆宠物领养吧百度贴吧招聘（重庆宠物领养吧百度贴吧招聘电话）</a></li>
+                        <li class="py-2"><a href="/news/article-56330.htm" title="猫粮所有品牌排行榜图片（猫粮排行榜前十名有哪些）">猫粮所有品牌排行榜图片（猫粮排行榜前十名有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-21039.htm" title="腊八节吃什么最适合(腊八节吃什么美食)">腊八节吃什么最适合(腊八节吃什么美食)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-nekobox-node-github.htm" title="11月13日 | Nekobox Android每天更新21.1M/S免费节点订阅链接">11月13日 | Nekobox Android每天更新21.1M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
