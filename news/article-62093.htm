@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-62093.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>C# 一维数组如何快速实现数组元素的数据类型的转换</title>
+        <meta name="description" content="假设有一串字符串如下所示，字符串中的数字之间已用英文状态下的逗号隔开。要求用此字符串中的数字快速生成int类型的数组，且尽可能使用最少的代码量。 string str = "1,2,3,4,5,6,7" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-62093.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="C# 一维数组如何快速实现数组元素的数据类型的转换" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/4c4c52ab4b18d8d89515f9d5a4c7332a.webp" />
+        <meta property="og:release_date" content="2025-02-24T09:15:39" />
+    <meta property="og:updated_time" content="2025-02-24T09:15:39" />
+        <meta property="og:description" content="假设有一串字符串如下所示，字符串中的数字之间已用英文状态下的逗号隔开。要求用此字符串中的数字快速生成int类型的数组，且尽可能使用最少的代码量。 string str = "1,2,3,4,5,6,7" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C# 一维数组如何快速实现数组元素的数据类型的转换">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>C# 一维数组如何快速实现数组元素的数据类型的转换</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				</h1> <p>假设有一串字符串如下所示，字符串中的数字之间已用英文状态下的逗号隔开。要求用此字符串中的数字快速生成int类型的数组，且尽可能使用最少的代码量。</p> <pre class="language-csharp"><code>string str = "1,2,3,4,5,6,7,8,9";</code></pre> </h1> <p>我相信大多数同学在拿到这题的时候，一般都会给出以下的解决方案：</p> <pre class="language-csharp"><code>public int[] String2IntArray(string str) {     var strArr = str.Split(',');     int[] numArr = new int[strArr.Length];     for (int i = 0; i &lt; strArr.Length; i++)     {         numArr[i] = Convert.ToInt32(strArr[i]);     }     return numArr; }</code></pre> <p>上述代码确实能解决上述场景中的问题。</p> </h1> <p>可是这时要求变了，改为生成char类型的数组。</p> <p>这时一部分同学会说，既然让生成char类型数组，那我改下数据类型不就可以了嘛，于是给出如下代码：</p> <pre class="language-csharp"><code>public char[] String2CharArray(string str) {     var strArr = str.Split(',');     char[] cArr = new char[strArr.Length];     for (int i = 0; i &lt; strArr.Length; i++)     {         cArr[i] = Convert.ToChar(strArr[i]);     }     return cArr; }</code></pre> <p>另外一部分同学会说，每改变一次输出的数据类型就要再写一个与之相应的方法，且方法还不能做到通用性，这样很不好。能不能用泛型解决此问题呢？想了一下，然后给出了以下代码：</p> <pre class="language-csharp"><code>public T[] String2Array&lt;T&gt;(string str) {     var tc = TypeDescriptor.GetConverter(typeof(T));     var strArr = str.Split(',');     T[] tArr = new T[strArr.Length];     for (int i = 0; i &lt; strArr.Length; i++)     {         tArr[i] = (T)tc.ConvertTo(strArr[i], typeof(T));     }     return tArr; }</code></pre> <p>泛型代码的解决方案可圈可点，可通用性感觉还是较差，代码量也还是有点多。</p> <p>如果这时要求数组实例直接进行数据元素的数据类型转换呢？上面泛型代码解决方案又要进行代码优化改进。这时有没有更好的解决方案呢？答案肯定是有的。</p> </h1> <p>数组（Array）类有一个静态方法ConvertAll，该方法能将一种类型的数组转换为另一种类型的数组。该方法能有效的解决上述问题的痛点。</p> <p>我们先来看一下这个方法的定义是怎样的：</p> <p><code>public static TOutput[] ConvertAll&lt;TInput, TOutput&gt;(TInput[] array, Converter&lt;TInput, TOutput&gt; converter);</code></p> <ul> <li>该方法没有重载方法，是类的静态方法，无需创建实例便可直接通过类名调用。</li> <li>TInput：源数组元素的类型。</li> <li>TOutput：目标数组元素的类型。</li> </ul> <p>上述问题用ConvertAll方法该如何编码实现呢？下面给出代码示例：</p> <pre class="language-csharp"><code>var arr = str.Split(','); var numArr = Array.ConvertAll&lt;string, int&gt;(arr, z =&gt; int.Parse(z));</code></pre> <p>&nbsp;或者</p> <pre class="language-csharp"><code>var arr = str.Split(','); var numArr = Array.ConvertAll&lt;string, int&gt;(arr, delegate (string s) { return int.Parse(s); });</code></pre> <p>&nbsp;ConvertAll方法仅用两行代码就能解决场景中的问题，与前述的其他解决方案相比，结果一目了然、不言而喻。</p> </h1> <p>那ConvertAll是如何实现数组元素的数据类型的转换的呢？我们反编译一下该方法，得到如下代码：</p> <pre class="language-csharp"><code>public static TOutput[] ConvertAll&lt;TInput, TOutput&gt;(TInput[] array, Converter&lt;TInput, TOutput&gt; converter) {     if (array == null)     {         throw new ArgumentNullException("array");     }          if (converter == null)     {         throw new ArgumentNullException("converter");     }          TOutput[] array2 = new TOutput[array.Length];     for (int i = 0; i &lt; array.Length; i++)     {         array2[i] = converter(array[i]);     }          return array2; }</code></pre> <p>&nbsp;我们再看一下Converter是如何定义的：</p> <p><code>public delegate TOutput Converter&lt;in TInput, out TOutput&gt;(TInput input);</code></p> <p>原来converter实际是一个委托。</p> <p>知其然知其所以然，以后再遇到数组元素的数据类型转换的问题我们就不再怕的了。</p> <p>这时，有的同学可能会说：“在不知道数组（Array）类ConvertAll静态方法和其实现的提前下，我也是有可能写出与ConvertAll方法类似或相同的代码实现的！”。那不得不说这些同学是真的很厉害，既然系统底层提供了该方法供我们使用，我们再编码一遍（提前是知道ConvertAll方法的存在和该方法的代码实现）岂不是有丢丢多余呀？直接使用何乐而不为呢？</p> <p>本篇文章我们经历了：提出问题-&gt;解决问题-&gt;延伸问题-&gt;刨根问底</p> <p>这样的思考方式有助于我们快速提升编码能力，也希望这样的思考方式能给各位同学解决问题带来些许灵感。</p> <p>--------------The&nbsp; End--------------</p> <p>----------本篇文章到此结束----------</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-61505.htm">长春宠物医院排名（长春良心的宠物医院）</a></p>
+                                        <p>下一个：<a href="/news/article-62094.htm">宠物粮食品牌前十名有哪些呢图片及价格大全（宠物粮品牌排行榜）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-node-subscribe.htm" title="1月28日 | Nekobox Android每天更新22.6M/S免费节点订阅地址分享">1月28日 | Nekobox Android每天更新22.6M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-46410.htm" title="动物医院大众点评评语怎么写啊 动物医院大众点评评语怎么写啊英语">动物医院大众点评评语怎么写啊 动物医院大众点评评语怎么写啊英语</a></li>
+                        <li class="py-2"><a href="/news/article-24721.htm" title="c# Semaphore（信号量）">c# Semaphore（信号量）</a></li>
+                        <li class="py-2"><a href="/news/article-20118.htm" title="宠物寄养须知样本（宠物寄养须知样本大全）">宠物寄养须知样本（宠物寄养须知样本大全）</a></li>
+                        <li class="py-2"><a href="/news/article-47887.htm" title="狗粮品牌都有哪些（狗粮品牌都有哪些）">狗粮品牌都有哪些（狗粮品牌都有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-23788.htm" title="DataView和DataTable的区别、联系、以及相互转化方法">DataView和DataTable的区别、联系、以及相互转化方法</a></li>
+                        <li class="py-2"><a href="/news/article-43961.htm" title="如何检查特定MySQL数据库中所有表的字符集以及列名？">如何检查特定MySQL数据库中所有表的字符集以及列名？</a></li>
+                        <li class="py-2"><a href="/news/article-21494.htm" title="FreeRTOS进阶之空闲任务示例完全解析_操作系统_">FreeRTOS进阶之空闲任务示例完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-today-nekobox-node.htm" title="1月31日 | Nekobox Android每天更新18.4M/S免费节点订阅地址分享">1月31日 | Nekobox Android每天更新18.4M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-48315.htm" title="SpringMVC 最详细笔记必备知识点">SpringMVC 最详细笔记必备知识点</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
