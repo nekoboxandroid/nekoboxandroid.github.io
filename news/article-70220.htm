@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-70220.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>Azure DevOps通过SSH部署上传到服务器的应用</title>
+        <meta name="description" content="上一篇中，我们实现了通过FTP把流水线编译出来的制品上传到我们的公网服务器上，这一篇我们来研究一下通过azure的ssh连接到服务器 把应用在服务器上运行起来。 首先，我们书接上文，在release流" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-70220.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="Azure DevOps通过SSH部署上传到服务器的应用" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/3171aa5f6bca908e7d1f1826d9a0cf9a.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:45:28" />
+    <meta property="og:updated_time" content="2025-03-09T09:45:28" />
+        <meta property="og:description" content="上一篇中，我们实现了通过FTP把流水线编译出来的制品上传到我们的公网服务器上，这一篇我们来研究一下通过azure的ssh连接到服务器 把应用在服务器上运行起来。 首先，我们书接上文，在release流" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Azure DevOps通过SSH部署上传到服务器的应用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>Azure DevOps通过SSH部署上传到服务器的应用</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<p>上一篇中，我们实现了通过FTP把流水线编译出来的制品上传到我们的公网服务器上，这一篇我们来研究一下通过azure的ssh连接到服务器</p> <p>把应用在服务器上运行起来。</p> <p>首先，我们书接上文，在release流水线的agent中添加第三个task，我们在右侧搜索ssh，点击添加。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/6d941f6483cd00ea822c7064c015ec38.jpg" alt="Azure DevOps通过SSH部署上传到服务器的应用"></p> <p>&nbsp;添加完成之后，需要我们去维护一个ssh的连接信息，我们点击Manage会跳转到azure的服务连接管理界面，在这里我们添加一个ssh的信息。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/b530b207e4eed85581049de66a74b132.jpg" alt="Azure DevOps通过SSH部署上传到服务器的应用"></p> <p>下拉到ssh，点击下一步,填入SSH的信息，主要要在勾选一下下面的单选框，让所有流水线都可以访问到这个凭证。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/edd1ae28c27e4862491a28106e904133.jpg" alt="Azure DevOps通过SSH部署上传到服务器的应用"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/448a9286f601de2ca439960cc58394a5.jpg" alt="Azure DevOps通过SSH部署上传到服务器的应用"></p> <p>然后返回我们流水线的SSH界面，刷新选择我们新创建的凭证，选择inline scripts选项，编写脚本，在编写脚本之前我们需要准备一些东西</p> <p>1.守护进程的文件</p> <p>2.nginx的反向代理文件</p> <p>当然也可以不进行反向代理，直接暴露服务也是没问题的，测试环境无所谓，生产上肯定是要包一下反向代理的，所以我们按生产的来。</p> <p>守护进程文件内容我这里写了一个简单的</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">[Unit] Description</span>=<span style="color: rgba(0, 0, 0, 1)">Example java App running on centos  [Service] WorkingDirectory</span>=/home/<span style="color: rgba(0, 0, 0, 1)">ftp ExecStart</span>=/usr/bin/java -jar /home/ftp/demo-<span style="color: rgba(0, 0, 0, 1)">app.jar Restart</span>=<span style="color: rgba(0, 0, 0, 1)">always # Restart service after</span><span style="color: rgba(128, 0, 128, 1)">10</span> seconds<span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)"> the dotnet service crashes: RestartSec</span>=<span style="color: rgba(128, 0, 128, 1)">10</span><span style="color: rgba(0, 0, 0, 1)"> KillSignal</span>=<span style="color: rgba(0, 0, 0, 1)">SIGINT SyslogIdentifier</span>=dotnet-<span style="color: rgba(0, 0, 0, 1)">example User</span>=<span style="color: rgba(0, 0, 0, 1)">root  [Install] WantedBy</span>=multi-user.target</pre> </div> <p>nginx反向代理节点把80代理到1433：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">server {     listen</span><span style="color: rgba(128, 0, 128, 1)">80</span><span style="color: rgba(0, 0, 0, 1)">;     location</span>/<span style="color: rgba(0, 0, 0, 1)"> {         proxy_pass         http:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">localhost:1433;</span>         proxy_http_version<span style="color: rgba(128, 0, 128, 1)">1.1</span><span style="color: rgba(0, 0, 0, 1)">;         proxy_set_header   Upgrade $http_upgrade;         proxy_set_header   Connection keep</span>-<span style="color: rgba(0, 0, 0, 1)">alive;         proxy_set_header   Host $host;         proxy_cache_bypass $http_upgrade;         proxy_set_header   X</span>-Forwarded-<span style="color: rgba(0, 0, 0, 1)">For $proxy_add_x_forwarded_for;         proxy_set_header   X</span>-Forwarded-<span style="color: rgba(0, 0, 0, 1)">Proto $scheme;     } }</span></pre> </div> <p>&nbsp;然后我们需要在服务器上线先手动把守护进程和反向代理配置好，这样日后流水线发布的时候只需要重启一下守护进程应用就自动重启了。</p> <p>接下来我们在bash中输入重启守护进程的命令，用于每次流水线执行完后重启应用。</p> <div class="cnblogs_code"> <pre>cd /home/ftp/<span style="color: rgba(0, 0, 0, 1)">app tar</span>-<span style="color: rgba(0, 0, 0, 1)">xvf demo.tar.gz systemctl start demo</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/da70ae9c3efec0b18bd1ea5300771327.jpg" alt="Azure DevOps通过SSH部署上传到服务器的应用"></p> <p>然后我们运行一下流水线看看效果，运行成功，没有报错。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5941c9f3972f7b2b9579e3e2eceb36fe.jpg" alt="Azure DevOps通过SSH部署上传到服务器的应用"></p> <p>&nbsp;我们上服务器看一下应用程序，守护进程重启成功，程序正常运行。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/72539467a91eff71ef24079fb57678d4.jpg" alt="Azure DevOps通过SSH部署上传到服务器的应用"></p> <p>&nbsp;到这里，我们通过流水线完成了从代码构建-》制品上传到服务器-》重启应用的整套流程，但是这只是一个非常简单的demo,并不符合我们生产时真正的要求，接下来我们会继续对流水线进行改造。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69583.htm">自己给宠物打疫苗没有宠物疫苗本怎么办（在宠物店打的疫苗没有疫苗证怎么办）</a></p>
+                                        <p>下一个：<a href="/news/article-70221.htm">免费领养宠物狗的官网（免费领养犬）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-free-subscribe-node.htm" title="2月21日 | Nekobox Android每天更新21.3M/S免费节点订阅地址分享">2月21日 | Nekobox Android每天更新21.3M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-57464.htm" title="JavaScript如何将字符串的字母映射到数组的对象">JavaScript如何将字符串的字母映射到数组的对象</a></li>
+                        <li class="py-2"><a href="/news/article-56330.htm" title="猫粮所有品牌排行榜图片（猫粮排行榜前十名有哪些）">猫粮所有品牌排行榜图片（猫粮排行榜前十名有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-today-nekobox-node.htm" title="1月31日 | Nekobox Android每天更新18.4M/S免费节点订阅地址分享">1月31日 | Nekobox Android每天更新18.4M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-nekobox-node.htm" title="2月13日 | Nekobox Android每天更新19.3M/S免费节点订阅地址分享">2月13日 | Nekobox Android每天更新19.3M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-68932.htm" title="在哪儿可以在同城免费领养猫（同城怎么领养猫）">在哪儿可以在同城免费领养猫（同城怎么领养猫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-high-speed-nodes.htm" title="1月18日 | Nekobox Android每天更新20.9M/S免费节点订阅地址分享">1月18日 | Nekobox Android每天更新20.9M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-today-nekobox-node.htm" title="2月8日 | Nekobox Android每天更新22.5M/S免费节点订阅地址分享">2月8日 | Nekobox Android每天更新22.5M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-62695.htm" title="超级详细的webpack Plugin讲解_javascript技巧_">超级详细的webpack Plugin讲解_javascript技巧_</a></li>
+                        <li class="py-2"><a href="/news/article-60321.htm" title="动物的疫苗多少钱一针啊图片（动物的疫苗多少钱一针啊图片大全）">动物的疫苗多少钱一针啊图片（动物的疫苗多少钱一针啊图片大全）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
