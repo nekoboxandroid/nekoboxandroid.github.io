@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-75531.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>vue父组件向子组件传值与传递方法</title>
+        <meta name="description" content="vue父组件向子组件传值与传递方法 学习笔记 1、父组件向子组件传值（props）  在子组件中，默认是无法访问到父组件中的data上的数据和methods中的方法 父组件可以在引用子组件的时候，通过" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-75531.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="vue父组件向子组件传值与传递方法" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/c4cd269984edef647c2f01dbd869d65b.webp" />
+        <meta property="og:release_date" content="2025-03-17T09:39:52" />
+    <meta property="og:updated_time" content="2025-03-17T09:39:52" />
+        <meta property="og:description" content="vue父组件向子组件传值与传递方法 学习笔记 1、父组件向子组件传值（props）  在子组件中，默认是无法访问到父组件中的data上的数据和methods中的方法 父组件可以在引用子组件的时候，通过" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue父组件向子组件传值与传递方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>vue父组件向子组件传值与传递方法</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="vue_0" rel="nofollow"></a>vue父组件向子组件传值与传递方法</h2> <p><em>学习笔记</em></p> <p><em><strong>1、父组件向子组件传值（props）</strong></em></p> <ul> <li>在子组件中，默认是无法访问到父组件中的data上的数据和methods中的方法</li> <li>父组件可以在引用子组件的时候，通过<strong>属性绑定v-bind传递</strong>，子组件调用通过<strong>子组件属性props定义</strong> </li> <li> <img decoding="async" src="http://img.555519.xyz/uploads/20230108/b93ce6991867a406e0c9bd629cd96dcb.jpg" alt="vue父组件向子组件传值与传递方法"><br /><em><strong>2、父组件向子组件传递方法（this.$emit()）</strong></em><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230108/c2570774b0c87ba166b81f32420bc382.jpg" alt="vue父组件向子组件传值与传递方法"><br /><strong>1、在子组件内通过绑定事件机制：@自定义方法名=“父组件方法名”</strong><br /><strong>2、子组件方法中，通过this.emit(“自定义方法名”)，触发</strong><br /><strong>3、子组件调用方法myclick</strong> </li> </ul> <p>总结：<br /> 1、父组件向子组件传值：<strong>1）子组件内v-bind自定义属性传递；2）子组件props属性定义自定义属性名；3）子组件调用自定义属性</strong><br /> 2、父组件向子组件传递方法：<strong>1）子组件内通过事件绑定机制 @自定义方法名=“父组件方法名”；2）在子组件方法内，通过this.$emit(“自定义方法名”)触发调用 3）子组件内调用子组件方法</strong></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-74863.htm">办理动物疫苗经营手续需要哪些资料（办理动物疫苗经营手续需要哪些资料呢）</a></p>
+                                        <p>下一个：<a href="/news/article-75532.htm">动物防疫站可以给猫做绝育吗视频（动物防疫站可以给猫咪打疫苗吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share.htm" title="1月10日 | Nekobox Android每天更新18M/S免费节点订阅地址分享">1月10日 | Nekobox Android每天更新18M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-47887.htm" title="狗粮品牌都有哪些（狗粮品牌都有哪些）">狗粮品牌都有哪些（狗粮品牌都有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-38985.htm" title="大兴天宫院集中隔离（大兴天宫院密接）">大兴天宫院集中隔离（大兴天宫院密接）</a></li>
+                        <li class="py-2"><a href="/news/article-63909.htm" title="宠物粮的种类大全（宠物粮go）">宠物粮的种类大全（宠物粮go）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-today-nekobox-node.htm" title="1月31日 | Nekobox Android每天更新18.4M/S免费节点订阅地址分享">1月31日 | Nekobox Android每天更新18.4M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-50934.htm" title="宠物领养数据统计软件（宠物领养软件下载）">宠物领养数据统计软件（宠物领养软件下载）</a></li>
+                        <li class="py-2"><a href="/news/article-60919.htm" title="动物医院管理办法规定有哪些要求（动物医院管理流程）">动物医院管理办法规定有哪些要求（动物医院管理流程）</a></li>
+                        <li class="py-2"><a href="/news/article-36523.htm" title="宠物粮品牌排名榜最新名单（宠物粮种类）">宠物粮品牌排名榜最新名单（宠物粮种类）</a></li>
+                        <li class="py-2"><a href="/news/article-38481.htm" title="重庆无偿领养猫猫（重庆无偿领养猫猫要求）">重庆无偿领养猫猫（重庆无偿领养猫猫要求）</a></li>
+                        <li class="py-2"><a href="/news/article-53574.htm" title="Nacos Discovery&#8211;服务治理">Nacos Discovery&#8211;服务治理</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">53</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
