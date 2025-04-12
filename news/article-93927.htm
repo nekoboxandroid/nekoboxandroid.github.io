@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-93927.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>Python3利用Qt5实现简易的五子棋游戏_python</title>
+        <meta name="description" content="要写出一个五子棋游戏，我们最先要解决的，就是如何下子，如何判断已经五子连珠，而不是如何绘制画面，因此我们先确定棋盘 五子棋采用15*15的棋盘，因此，我们可以使用二维列表来创建一个棋盘，不妨认为0表示" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-93927.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="Python3利用Qt5实现简易的五子棋游戏_python" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/18cc897391fc28fdab0279a81532ebde.webp" />
+        <meta property="og:release_date" content="2025-04-12T08:53:15" />
+    <meta property="og:updated_time" content="2025-04-12T08:53:15" />
+        <meta property="og:description" content="要写出一个五子棋游戏，我们最先要解决的，就是如何下子，如何判断已经五子连珠，而不是如何绘制画面，因此我们先确定棋盘 五子棋采用15*15的棋盘，因此，我们可以使用二维列表来创建一个棋盘，不妨认为0表示" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python3利用Qt5实现简易的五子棋游戏_python">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>Python3利用Qt5实现简易的五子棋游戏_python</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                  				  				  				<p>要写出一个五子棋游戏，我们最先要解决的，就是如何下子，如何判断已经五子连珠，而不是如何绘制画面，因此我们先确定棋盘</p> <p>五子棋采用15*15的棋盘，因此，我们可以使用二维列表来创建一个棋盘，不妨认为0表示未放置棋子，1表示放置白子，2表示放置黑子。</p> <p>显而易见可以创建列表，<span style="color:#c0392b"><strong>注意不能使用*来复制列表</strong></span></p> <div class="ay1code"> <pre class="brush:py;">self.chess_board = [[0 for i in range(15)] for i in range(15)]</pre> </div> <p>下棋的步骤十分好做，只需要找到对应的索引进行赋值即可，下一步应该解决如何判断五子连珠的问题。</p> <p>每当我们落子结束后，应该判断是否已经完成五子连珠。对于刚放置的一颗棋子而言，可能的情况大致分为四种：</p> <p>1.水平<br />2.斜向右下<br />3.竖直<br />4.斜向右上</p> <p>要判断是否已经连珠成功，我们以刚放置的棋子为起点，先向前遍历4个棋子，并计算相同棋子的个数，一旦遇到不同的棋子，就停止，然后从起点向后遍历4个棋子，直到全部遍历完成或者棋子总数已经达到5个，就可以返回。我们只需要注意<strong>如何获得棋子的前后棋子</strong>以及<strong>棋盘的边界问题</strong>，棋子不可能超出棋盘，因此被遍历的棋子也不能超出棋盘。</p> <p>以水平为例，可以得到代码</p> <div class="ay1code"> <pre class="brush:py;">def judge_1(self,x:int,y:int) -&gt; bool:          count = 1          if self.chess_board[x][y] != 0:              for i in range(1,5):                  if y - i &gt;= 0:                      if self.chess_board[x][y] == self.chess_board[x][y-i]:                          print(x,y-i)                          count += 1                      else:                          break                  else:                      break              for i in range(1,5):                  if y + i &lt;=14:                      if self.chess_board[x][y] == self.chess_board[x][y+i]:                          print(x,y+i)                          count += 1                      else:                          break                  else:                      break          if count == 5:              return True          return False</pre> </div> <p>以相似的步骤完成其余三种判断，就已经完成了五子棋游戏的核心要素了，剩下的就需要交给PyQt5来完成游戏的绘制来完善游戏了。</p> <p>我们创建一个类来继承QWidget类，创建一个窗口，之后我们需要创建几个属性来完成储存我们的数据信息</p> <div class="ay1code"> <pre class="brush:py;">#棋子的坐标  self.x = -1  self.y = -1  #区分玩家  #开始标签  self.flag = False  #储存已经下好的白子  self.white_chess = []  #储存已经下好的黑子  self.black_chess = []</pre> </div> <p>我们已经可以开始绘制棋盘，在Qt5中，如果我们需要进行绘制，我们应该<strong>重写</strong>paintEvent方法，这个方法会由程序自动调用执行。创建一个QPainter对象，将需要绘制的内容用begin与end方法包裹起来，就可以完成绘制。</p> <p>我们用drawLine方法来绘制线条，用drawEllipse方法来绘制棋子，使用setPen来更改线条样式，setBrush来更改棋子样式。</p> <p>得到代码<strong>（本段代码有参考他人代码，这是我第一次接触Qt的绘制）</strong></p> <p>--------------------GUI中的x轴竖直向下，y轴水平向右，因此绘制棋子时的x与y需要颠倒---------------</p> <div class="ay1code"> <pre class="brush:py;">#绘制棋盘与棋子      def paintEvent(self, e) -&gt; None:          qp = QPainter()          qp.begin(self)          qp.fillRect(self.rect(), QColor("light blue"))          qp.drawRect(self.rect())          qp.setBackground(QColor("yellow"))          qp.setPen(QPen(QColor(0, 0, 0), 2, Qt.SolidLine))          for i in range(15):              qp.drawLine(QPoint(30, 30 + 30 * i), QPoint(450, 30 + 30 * i))          for i in range(15):              qp.drawLine(QPoint(30 + 30 * i, 30), QPoint(30 + 30 * i, 450))          qp.setBrush(QColor(0, 0, 0))          key_points = [(3, 3), (11, 3), (3, 11), (11, 11), (7, 7)]          if len(self.black_chess) != 0:              for t in self.black_chess:                  #画黑子                  qp.drawEllipse(QPoint(30 + 30 * t[1], 30 + 30 * t[0]), 6, 6)          for t in key_points:              #棋盘的5个定点              qp.drawEllipse(QPoint(30 + 30 * t[0], 30 + 30 * t[1]), 3, 3)          qp.setBrush(QColor(255,255,255))          if len(self.white_chess) != 0:              for t in self.white_chess:                  #画白子                  qp.drawEllipse(QPoint(30 + 30 * t[1], 30 + 30 * t[0]), 6, 6)          qp.end()</pre> </div> <p>另一个需要在GUI中解决的问题就是，如何获取要下的棋子的坐标?我们可以通过重写鼠标事件来解决，重写单机事件mousePressEvent，并修改棋子的x坐标与y坐标即可，另外，用户不可能每次都恰巧点到我们规定的坐标点上，因此需要给出一个大致范围判断，这里我的方式是先获取坐标，然后根据坐标找到距离最近的点</p> <div class="ay1code"> <pre class="brush:py;">def mousePressEvent(self, e) -&gt; None:          if e.buttons() == QtCore.Qt.LeftButton:              if e.x() &gt; 15 and e.x() &lt; 465 and e.y() &gt; 15 and e.y() &lt; 465:                  x = e.x()/30 - e.x()//30                  y = e.y()/30 - e.y()//30                  self.y = (e.x()-30)//30 if x &lt; 0.5 else (e.x()-30)//30 + 1                  self.x = (e.y()-30)//30 if y &lt; 0.5 else (e.y()-30)//30 + 1                  if self.flag:                      print(self.x,self.y)                      if self.player % 2 == 1:                          if goBang.put_white_chess(self.x,self.y):                              self.player += 1                               print('黑子行动')                          else:                              print('白子行动')                          if goBang.judge(self.x,self.y):                              msg_box = QMessageBox(QMessageBox.Information, '提示', '白子获胜！')                              msg_box.exec_()                      else:                          if goBang.put_black_chess(self.x,self.y):                              self.player += 1                              print('白子行动')                          else:                              print('黑子行动')                          if goBang.judge(self.x,self.y):                              msg_box = QMessageBox(QMessageBox.Information, '提示', '黑子获胜！')                              msg_box.exec_()</pre> </div> <p>每当游戏完成，我们应该可以清空棋盘，也就是将所有储存数据的变量都重新初始化再重绘棋盘</p> <div class="ay1code"> <pre class="brush:py;">#清除棋盘，重开游戏      def clear(self) -&gt; None:          self.x = -1          self.y = -1          self.player = 0          self.flag = False          self.white_chess = []          self.black_chess = []          self.chess_board = [[0 for i in range(15)] for i in range(15)]          self.update()</pre> </div> <p>这样就大致结束了！！</p> <p>下面是全部代码：</p> <div class="ay1code"> <pre class="brush:py;">from PyQt5 import *  from PyQt5 import QtCore  from PyQt5.QtWidgets import *  from PyQt5.QtGui import *  from PyQt5.QtCore import *  import sys     class GoBang(QWidget):      #初始化棋盘      def __init__(self):          super().__init__()          self.setWindowTitle('五子棋Hi~ o(*￣▽￣*)ブ')          self.x = -1          self.y = -1          #区分玩家          self.player = 0          #开始标签          self.flag = False          #储存已经下好的白子          self.white_chess = []          #储存已经下好的黑子          self.black_chess = []          self.setFixedSize(800,600)          self.chess_board = [[0 for i in range(15)] for i in range(15)]          btn1 = QPushButton('开始',self)          btn1.setGeometry(500,100,50,30)          btn1.clicked.connect(self.setFlag)          btn2 = QPushButton('重开',self)          btn2.setGeometry(550,100,50,30)          btn2.clicked.connect(self.clear)          self.show()            #绘制棋盘与棋子      def paintEvent(self, e) -&gt; None:          qp = QPainter()          qp.begin(self)          qp.fillRect(self.rect(), QColor("light blue"))          qp.drawRect(self.rect())          qp.setBackground(QColor("yellow"))          qp.setPen(QPen(QColor(0, 0, 0), 2, Qt.SolidLine))          for i in range(15):              qp.drawLine(QPoint(30, 30 + 30 * i), QPoint(450, 30 + 30 * i))          for i in range(15):              qp.drawLine(QPoint(30 + 30 * i, 30), QPoint(30 + 30 * i, 450))          qp.setBrush(QColor(0, 0, 0))          key_points = [(3, 3), (11, 3), (3, 11), (11, 11), (7, 7)]          if len(self.black_chess) != 0:              for t in self.black_chess:                  #画黑子                  qp.drawEllipse(QPoint(30 + 30 * t[1], 30 + 30 * t[0]), 6, 6)          for t in key_points:              #棋盘的5个定点              qp.drawEllipse(QPoint(30 + 30 * t[0], 30 + 30 * t[1]), 3, 3)          qp.setBrush(QColor(255,255,255))          if len(self.white_chess) != 0:              for t in self.white_chess:                  #画白子                  qp.drawEllipse(QPoint(30 + 30 * t[1], 30 + 30 * t[0]), 6, 6)          qp.end()         #更改标签，开始游戏      def setFlag(self) -&gt; None:          self.flag = True         def mousePressEvent(self, e) -&gt; None:          if e.buttons() == QtCore.Qt.LeftButton:              if e.x() &gt; 15 and e.x() &lt; 465 and e.y() &gt; 15 and e.y() &lt; 465:                  x = e.x()/30 - e.x()//30                  y = e.y()/30 - e.y()//30                  self.y = (e.x()-30)//30 if x &lt; 0.5 else (e.x()-30)//30 + 1                  self.x = (e.y()-30)//30 if y &lt; 0.5 else (e.y()-30)//30 + 1                  if self.flag:                      print(self.x,self.y)                      if self.player % 2 == 1:                          if goBang.put_white_chess(self.x,self.y):                              self.player += 1                               print('黑子行动')                          else:                              print('白子行动')                          if goBang.judge(self.x,self.y):                              msg_box = QMessageBox(QMessageBox.Information, '提示', '白子获胜！')                              msg_box.exec_()                      else:                          if goBang.put_black_chess(self.x,self.y):                              self.player += 1                              print('白子行动')                          else:                              print('黑子行动')                          if goBang.judge(self.x,self.y):                              msg_box = QMessageBox(QMessageBox.Information, '提示', '黑子获胜！')                              msg_box.exec_()                       #下白子      def put_white_chess(self,x:int,y:int) -&gt; bool:          if self.chess_board[x][y] != 0:              msg_box = QMessageBox(QMessageBox.Information, '提示', '这个位置已经有棋子了!')              msg_box.exec_()              return False          else:              self.chess_board[x][y] = 1              self.white_chess.append((x,y))              self.update()              return True         #下黑子      def put_black_chess(self,x:int,y:int) -&gt; bool:          if self.chess_board[x][y] != 0:              msg_box = QMessageBox(QMessageBox.Information, '提示', '这个位置已经有棋子了!')              msg_box.exec_()              return False          else:              self.chess_board[x][y] = 2              self.black_chess.append((x,y))              self.update()              return True         #清除棋盘，重开游戏      def clear(self) -&gt; None:          self.x = -1          self.y = -1          self.player = 0          self.flag = False          self.white_chess = []          self.black_chess = []          self.chess_board = [[0 for i in range(15)] for i in range(15)]          self.update()         #判断是否已经五子连珠      def judge(self,x:int,y:int) -&gt; bool:          if self.judge_1(x,y) or self.judge_2(x,y) or self.judge_3(x,y) or self.judge_4(x,y):              return True          return False         #判断横线      def judge_1(self,x:int,y:int) -&gt; bool:          count = 1          if self.chess_board[x][y] != 0:              for i in range(1,5):                  if y - i &gt;= 0:                      if self.chess_board[x][y] == self.chess_board[x][y-i]:                          print(x,y-i)                          count += 1                      else:                          break                  else:                      break              for i in range(1,5):                  if y + i &lt;=14:                      if self.chess_board[x][y] == self.chess_board[x][y+i]:                          print(x,y+i)                          count += 1                      else:                          break                  else:                      break          if count == 5:              return True          return False         #判断右下线      def judge_2(self,x:int,y:int) -&gt; bool:          count = 1          if self.chess_board[x][y] != 0:              for i in range(1,5):                  if x-i &gt;= 0 and y - i &gt;= 0:                      if self.chess_board[x][y] == self.chess_board[x-i][y-i]:                          print(x-i,y-i)                          count += 1                      else:                          break                  else:                      break              for i in range(1,5):                  if x + i &lt;= 14 and y + i &lt;= 14:                      if self.chess_board[x][y] == self.chess_board[x+i][y+i]:                          print(x+i,y+i)                          count += 1                      else:                          break                  else:                      break          if count == 5:              return True          return False         #判断竖线      def judge_3(self,x:int,y:int) -&gt; bool:          count = 1          if self.chess_board[x][y] != 0:              for i in range(1,5):                  if x - i &gt;= 0:                      if self.chess_board[x][y] == self.chess_board[x-i][y]:                          print(x-i,y)                          count += 1                      else:                          break                  else:                      break              for i in range(1,5):                  if x + i &lt;= 14:                      if self.chess_board[x][y] == self.chess_board[x+i][y]:                          print(x+i,y)                          count += 1                      else:                          break                  else:                      break          if count == 5:              return True          return False         #判断右上线      def judge_4(self,x:int,y:int) -&gt; bool:          count = 1          if self.chess_board[x][y] != 0:              for i in range(1,5):                  if x - i &gt;= 0 and y + i &lt;= 14:                      if self.chess_board[x][y] == self.chess_board[x-i][y+i]:                          print(x-i,y+i)                          count += 1                      else:                          break                  else:                      break              for i in range(1,5):                  if x + i &lt;= 14 and y - i &gt;= 0:                      if self.chess_board[x][y] == self.chess_board[x+i][y-i]:                          print(x+i,y-i)                          count += 1                      else:                          break                  else:                      break          if count == 5:              return True          return False     #程序入口  if __name__ == '__main__':        app = QApplication(sys.argv)        goBang = GoBang()      sys.exit(app.exec_())</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-93926.htm">Python笔记：内置函数chr()用法</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-93927.htm" title="Python3利用Qt5实现简易的五子棋游戏_python">Python3利用Qt5实现简易的五子棋游戏_python</a></li>
+                        <li class="py-2"><a href="/news/article-74190.htm" title="动物医院名字大全集图片（动物医院牌匾）">动物医院名字大全集图片（动物医院牌匾）</a></li>
+                        <li class="py-2"><a href="/news/article-69583.htm" title="自己给宠物打疫苗没有宠物疫苗本怎么办（在宠物店打的疫苗没有疫苗证怎么办）">自己给宠物打疫苗没有宠物疫苗本怎么办（在宠物店打的疫苗没有疫苗证怎么办）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-subscribe-node.htm" title="3月2日 | Nekobox Android每天更新20.3M/S免费节点订阅地址分享">3月2日 | Nekobox Android每天更新20.3M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-89602.htm" title="让猫挠了打什么针（让猫挠了应该打什么针）">让猫挠了打什么针（让猫挠了应该打什么针）</a></li>
+                        <li class="py-2"><a href="/news/article-93319.htm" title="宠物领养协议押金 宠物领养协议押金多少">宠物领养协议押金 宠物领养协议押金多少</a></li>
+                        <li class="py-2"><a href="/news/article-88150.htm" title="宠物食品加工厂手续办理流程视频（宠物食品加工厂加盟）">宠物食品加工厂手续办理流程视频（宠物食品加工厂加盟）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-free-node-subscribe-links.htm" title="3月22日 | Nekobox Android每天更新19.7M/S免费节点订阅地址分享">3月22日 | Nekobox Android每天更新19.7M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-high-speed-nodes.htm" title="4月1日 | Nekobox Android每天更新22.4M/S免费节点订阅地址分享">4月1日 | Nekobox Android每天更新22.4M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-85996.htm" title="养猫打疫苗要花多少钱（养猫打疫苗要花多少钱呢）">养猫打疫苗要花多少钱（养猫打疫苗要花多少钱呢）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
