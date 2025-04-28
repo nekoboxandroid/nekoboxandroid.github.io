@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-105400.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>Pandas 错误记录</title>
+        <meta name="description" content="1.错误发生在从hdfs下载csv文件到本地，利用pandas读取报错 出现此错误的原因是因为输入文件的路径是文件夹路径，而不是文件本身。 查看本地文件，果然data_rh.csv是个假数据文件打开里" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-105400.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="Pandas 错误记录" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/81716dac03e019f077c0955210996938.webp" />
+        <meta property="og:release_date" content="2025-04-27T08:27:12" />
+    <meta property="og:updated_time" content="2025-04-27T08:27:12" />
+        <meta property="og:description" content="1.错误发生在从hdfs下载csv文件到本地，利用pandas读取报错 出现此错误的原因是因为输入文件的路径是文件夹路径，而不是文件本身。 查看本地文件，果然data_rh.csv是个假数据文件打开里" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Pandas 错误记录">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>Pandas 错误记录</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-github-gist"> <p>1.错误发生在从hdfs下载csv文件到本地，利用pandas读取报错<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230108/7ace0bd6cef47da07d2b3334a0296c76.jpg" alt="Pandas 错误记录"><br /> 出现此错误的原因是因为输入文件的路径是文件夹路径，而不是文件本身。<br /> 查看本地文件，果然data_rh.csv是个假数据文件打开里面有很多小文件。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230108/0d50ea54f3295cd4dd1352d8f0d4e814.jpg" alt="Pandas 错误记录"><br /> 主要是利用spark df.write.format(“csv”).save("/tmp/myFile.csv") 保存的是一个myFile.csv的文件夹，有两个问题：</p> <ul> <li>hadoop fs -get 命令得到是一堆文件。</li> <li>文件都是以snappy格式压缩的</li> </ul> <p>第一个问题，可以使用coalesce进行合并，df.coalesce(1).write.option(“header”, “true”).csv(“myFile.csv”)<br /> 这样的写法同样会产生一个myFile.csv的文件夹，但其中的数据会全部保存到单个csv文件中<br /> 第二个问题，由于我使用的是sparkmagic，所以默认压缩是snappy, 可以在csv的compression参数进行设置。</p> <pre><code class="prism language-python">df<span class="token punctuation">.</span>coalesce<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>\   <span class="token punctuation">.</span>write<span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"header"</span><span class="token punctuation">,</span> <span class="token string">"true"</span><span class="token punctuation">)</span>\   <span class="token punctuation">.</span>csv<span class="token punctuation">(</span>path<span class="token operator">=</span><span class="token string">"myFile.csv"</span><span class="token punctuation">,</span> compression<span class="token operator">=</span><span class="token string">"none"</span><span class="token punctuation">)</span> </code></pre> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-104647.htm">宠物疫苗不放冰箱会怎么样（宠物疫苗保存是放冰箱上面还是下面）</a></p>
+                                        <p>下一个：<a href="/news/article-105401.htm">海拉鲁左上角第二个神庙（海拉鲁丘陵下面神庙）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-nekobox-node.htm" title="3月16日 | Nekobox Android每天更新20.9M/S免费节点订阅地址分享">3月16日 | Nekobox Android每天更新20.9M/S免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-102194.htm" title="运城动物防疫站在哪（运城市动物疫病预防控制中心）">运城动物防疫站在哪（运城市动物疫病预防控制中心）</a></li>
+                        <li class="py-2"><a href="/news/article-72869.htm" title="一片枫叶什么意思（一片枫叶是什么牌子潮牌）">一片枫叶什么意思（一片枫叶是什么牌子潮牌）</a></li>
+                        <li class="py-2"><a href="/news/article-105401.htm" title="海拉鲁左上角第二个神庙（海拉鲁丘陵下面神庙）">海拉鲁左上角第二个神庙（海拉鲁丘陵下面神庙）</a></li>
+                        <li class="py-2"><a href="/news/article-89603.htm" title="宠物领养需求分析报告范文（宠物领养系统国内外现状）">宠物领养需求分析报告范文（宠物领养系统国内外现状）</a></li>
+                        <li class="py-2"><a href="/news/article-76229.htm" title="分库分表实现方式Client和Proxy，性能和维护性该怎么选？">分库分表实现方式Client和Proxy，性能和维护性该怎么选？</a></li>
+                        <li class="py-2"><a href="/news/article-67641.htm" title="C ++程序使用Sundaram筛子在给定范围之间生成素数">C ++程序使用Sundaram筛子在给定范围之间生成素数</a></li>
+                        <li class="py-2"><a href="/news/article-72204.htm" title="宠物领养协议书范本模板图片大全 宠物领养协议书范本模板图片大全集">宠物领养协议书范本模板图片大全 宠物领养协议书范本模板图片大全集</a></li>
+                        <li class="py-2"><a href="/news/article-100049.htm" title="广州鸟类批发市场（广州哪里有鸟买）">广州鸟类批发市场（广州哪里有鸟买）</a></li>
+                        <li class="py-2"><a href="/news/article-99252.htm" title="动物防疫站营业时间是多少（动物防疫站营业时间是多少号）">动物防疫站营业时间是多少（动物防疫站营业时间是多少号）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">82</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
