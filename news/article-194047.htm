@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nekoboxandroid.github.io/news/article-194047.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <title>深入探讨 vmess 与 ssr：网络代理协议的全面比较与应用</title>
+        <meta name="description" content="在现代互联网世界中，网络安全和隐私保护已成为每个用户关注的重点。为了确保安全稳定的网络访问，越来越多的人选择使用代理技术，而 vmess 和 ShadowsocksR（简称 ssr）则是当前最为流行的" />
+        <link rel="icon" href="/assets/website/img/nekoboxandroid/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Nekobox Android免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nekoboxandroid.github.io/news/article-194047.htm" />
+    <meta property="og:site_name" content="Nekobox Android免费节点分享站" />
+    <meta property="og:title" content="深入探讨 vmess 与 ssr：网络代理协议的全面比较与应用" />
+    <meta property="og:image" content="https://nekoboxandroid.github.io/uploads/20240804/c4cd269984edef647c2f01dbd869d65b.webp" />
+        <meta property="og:release_date" content="2025-12-31T13:41:57" />
+    <meta property="og:updated_time" content="2025-12-31T13:41:57" />
+        <meta property="og:description" content="在现代互联网世界中，网络安全和隐私保护已成为每个用户关注的重点。为了确保安全稳定的网络访问，越来越多的人选择使用代理技术，而 vmess 和 ShadowsocksR（简称 ssr）则是当前最为流行的" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="深入探讨 vmess 与 ssr：网络代理协议的全面比较与应用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/nekoboxandroid/owl-carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7680DZ2M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N7680DZ2M0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6957240247502121" crossorigin="anonymous"></script></head>
+
+<body data-page="detail">
+        <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/" class="logo">
+                                                <span>Nekobox Android 免费节点</span>
+                                                </a>
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area list" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>深入探讨 vmess 与 ssr：网络代理协议的全面比较与应用</h1>
+                        <p>
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="/assets/website/img/nekoboxandroid/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <input type="hidden" id="share-website-info" data-name="NekoBoxNode官网节点站" data-url="https://nekoboxnode.github.io">
+<div class="xcblog-blog-detail xcblog-blog-detail-defined">
+    
+<p data-start="35" data-end="233" class="">在现代互联网世界中，网络安全和隐私保护已成为每个用户关注的重点。为了确保安全稳定的网络访问，越来越多的人选择使用代理技术，而 vmess 和 ShadowsocksR（简称 ssr）则是当前最为流行的两种网络代理协议。虽然它们的目标都旨在为用户提供更为安全的网络访问，但它们的实现方式、配置复杂度、性能表现以及适用场景却各具特点。本文将深入分析这两种协议的差异，帮助用户根据自身需求做出最优选择。</p>
+<h2 data-start="235" data-end="248" class="">什么是 vmess？</h2>
+<p data-start="250" data-end="329" class="">vmess 是基于 V2Ray 的网络代理协议，专为提供更高的安全性、灵活性以及更佳的网络性能而设计。它的目标是在确保数据传输安全的同时，优化用户的网络体验。</p>
+<h3 data-start="331" data-end="346" class="">vmess 的主要特点</h3>
+<ol data-start="348" data-end="649">
+<li data-start="348" data-end="447" class="">
+<p data-start="351" data-end="447" class=""><strong data-start="351" data-end="359">加密传输</strong><br data-start="359" data-end="362">
+vmess 使用了多种加密方式，确保在数据传输过程中，所有的信息都能得到有效保护。无论是个人数据，还是浏览器中传输的敏感信息，vmess 都能有效防止泄露或被窃取。</p>
+</li>
+<li data-start="449" data-end="545" class="">
+<p data-start="452" data-end="545" class=""><strong data-start="452" data-end="460">多路复用</strong><br data-start="460" data-end="463">
+vmess 协议支持多路复用技术，意味着多个数据流可以共享同一个连接，从而提升带宽利用率和降低延迟。这对于需要同时进行多个连接的用户来说，能显著提升网络效率。</p>
+</li>
+<li data-start="547" data-end="649" class="">
+<p data-start="550" data-end="649" class=""><strong data-start="550" data-end="558">灵活配置</strong><br data-start="558" data-end="561">
+vmess 提供了强大的配置灵活性，用户可以根据实际需要自定义连接参数，如选择不同的加密算法、设置代理服务器等。这使得 vmess 成为适用于各种复杂网络环境的解决方案。</p>
+</li>
+</ol>
+<h2 data-start="651" data-end="662" class="">什么是 ssr？</h2>
+<p data-start="664" data-end="788" class="">ShadowsocksR（ssr）是 Shadowsocks（SS）的一个改进版本，它依旧沿用了 SS 的高效加密和简便易用的特点，但在抗干扰能力和性能上进行了进一步优化。ssr 适用于科学上网以及绕过网络审查的场景，是许多用户日常网络访问的选择。</p>
+<h3 data-start="790" data-end="803" class="">ssr 的主要特点</h3>
+<ol data-start="805" data-end="1123">
+<li data-start="805" data-end="919" class="">
+<p data-start="808" data-end="919" class=""><strong data-start="808" data-end="816">简单易用</strong><br data-start="816" data-end="819">
+ssr 的最大优点之一就是其配置的简单性。相比于 vmess，ssr 更加适合普通用户，特别是对于技术基础较弱的新手来说，ssr 提供了直观的用户界面和快速配置选项，使得其部署过程变得十分轻松。</p>
+</li>
+<li data-start="921" data-end="1013" class="">
+<p data-start="924" data-end="1013" class=""><strong data-start="924" data-end="934">多种加密方式</strong><br data-start="934" data-end="937">
+ssr 提供了多种加密算法，包括一些高强度的加密选项，用户可以根据需求选择适合的算法。这些加密方式有效地保护了用户的网络流量免受中间人攻击和窃听。</p>
+</li>
+<li data-start="1015" data-end="1123" class="">
+<p data-start="1018" data-end="1123" class=""><strong data-start="1018" data-end="1028">抗干扰能力强</strong><br data-start="1028" data-end="1031">
+ssr 协议在设计上更加注重对抗网络封锁与干扰，尤其是在高墙环境下，ssr 能较好地保持稳定的连接，提供流畅的上网体验。对于需要突破网络审查的用户来说，ssr 是一个很好的选择。</p>
+</li>
+</ol>
+<h2 data-start="1125" data-end="1143" class="">vmess 与 ssr 的比较</h2>
+<p data-start="1145" data-end="1215" class="">虽然 vmess 和 ssr 都能够提供安全的代理服务，但它们在多个方面存在差异。根据用户的需求，选择合适的协议将直接影响到网络体验的质量。</p>
+<h3 data-start="1217" data-end="1227" class="">1. 安全性</h3>
+<p data-start="1229" data-end="1343" class="">从安全性角度来看，vmess 无疑占据了上风。vmess 提供了更强的加密方式，并且支持多路复用技术，有效减少了攻击者窃取数据的机会。此外，vmess 协议的设计更加注重防止被探测和拦截，因此在敏感场合下，vmess 更为合适。</p>
+<p data-start="1345" data-end="1418" class="">相对而言，ssr 虽然也支持多种加密算法，但由于协议设计上的差异，它的加密强度和防护机制略逊一筹，尤其在应对复杂的网络审查时，可能会显得不够稳定。</p>
+<h3 data-start="1420" data-end="1432" class="">2. 配置复杂度</h3>
+<p data-start="1434" data-end="1574" class="">对于大多数普通用户而言，ssr 更具优势。ssr 的配置过程非常简单，用户只需提供服务器地址、端口、密码等基本信息，即可快速完成设置。而 vmess 的配置则相对复杂，需要用户具备一定的技术基础，配置过程中涉及的参数较多，如服务器地址、加密方式、传输协议等，可能让初学者感到困惑。</p>
+<h3 data-start="1576" data-end="1587" class="">3. 性能表现</h3>
+<p data-start="1589" data-end="1709" class="">在性能方面，vmess 在高延迟网络环境下表现更为出色。它支持多个连接同时使用，有效避免了延迟带来的影响，适合需要稳定连接和高速数据传输的用户。ssr 在普通网络环境下也能提供不错的表现，但在高延迟的情况下，可能会遇到卡顿或延迟过高的问题。</p>
+<h3 data-start="1711" data-end="1725" class="">4. 网络环境适应性</h3>
+<p data-start="1727" data-end="1865" class="">vmess 在应对各种网络环境时表现得尤为强大。它可以灵活配置各种网络参数，适应复杂的网络场景，尤其是在一些复杂的翻墙需求下，vmess 的性能和安全性都优于 ssr。而 ssr 更适合一些相对简单的场景，尤其是在网络条件不复杂的情况下，ssr 能够快速配置并提供稳定的连接。</p>
+<h2 data-start="1867" data-end="1881" class="">如何配置 vmess？</h2>
+<p data-start="1883" data-end="1953" class="">配置 vmess 需要一定的步骤，首先需要下载并安装 V2Ray 客户端，然后创建一个配置文件并填入相关的服务器信息。以下是基本的配置流程：</p>
+<ol data-start="1955" data-end="2195">
+<li data-start="1955" data-end="2038" class="">
+<p data-start="1958" data-end="2038" class=""><strong data-start="1958" data-end="1970">下载 V2Ray</strong><br data-start="1970" data-end="1973">
+用户可以从官方网站下载适合自己操作系统的 V2Ray 客户端。支持 Windows、macOS、Linux 等主流操作系统。</p>
+</li>
+<li data-start="2040" data-end="2131" class="">
+<p data-start="2043" data-end="2131" class=""><strong data-start="2043" data-end="2053">创建配置文件</strong><br data-start="2053" data-end="2056">
+配置文件是 V2Ray 客户端运行的核心，用户需要在配置文件中填入服务器地址、端口、用户ID、加密方式等信息。可以根据自己的需求自定义这些参数。</p>
+</li>
+<li data-start="2133" data-end="2195" class="">
+<p data-start="2136" data-end="2195" class=""><strong data-start="2136" data-end="2145">启动客户端</strong><br data-start="2145" data-end="2148">
+配置完成后，启动 V2Ray 客户端即可连接到指定的服务器并开始使用 vmess 协议。</p>
+</li>
+</ol>
+<h2 data-start="2197" data-end="2209" class="">如何配置 ssr？</h2>
+<p data-start="2211" data-end="2271" class="">配置 ssr 相对简单，用户只需下载适合自己系统的 ssr 客户端，接着填写必要的服务器信息即可。以下是基本的配置步骤：</p>
+<ol data-start="2273" data-end="2456">
+<li data-start="2273" data-end="2327" class="">
+<p data-start="2276" data-end="2327" class=""><strong data-start="2276" data-end="2290">下载 ssr 客户端</strong><br data-start="2290" data-end="2293">
+访问 ssr 的官方网站，选择适合自己操作系统的版本进行下载。</p>
+</li>
+<li data-start="2329" data-end="2402" class="">
+<p data-start="2332" data-end="2402" class=""><strong data-start="2332" data-end="2343">添加服务器信息</strong><br data-start="2343" data-end="2346">
+在客户端中添加服务器地址、端口号、密码、加密方式等必要的配置。用户可以选择不同的加密方式以适应不同的需求。</p>
+</li>
+<li data-start="2404" data-end="2456" class="">
+<p data-start="2407" data-end="2456" class=""><strong data-start="2407" data-end="2416">连接服务器</strong><br data-start="2416" data-end="2419">
+完成配置后，点击连接按钮，即可成功连接到服务器并使用 ssr 协议。</p>
+</li>
+</ol>
+<h2 data-start="2458" data-end="2467" class="">常见问题解答</h2>
+<h3 data-start="2469" data-end="2493" class="">1. vmess 和 ssr 哪个更好？</h3>
+<p data-start="2495" data-end="2604" class="">选择 vmess 还是 ssr 主要取决于用户的需求。如果您更关注安全性、性能以及网络适应性，尤其是在需要稳定连接的场景下，vmess 是更合适的选择。而如果您是网络新手，并且对操作简便性有较高要求，ssr 则更适合。</p>
+<h3 data-start="2606" data-end="2624" class="">2. 如何选择合适的服务器？</h3>
+<p data-start="2626" data-end="2700" class="">选择合适的服务器时，延迟和带宽是两个非常重要的因素。建议选择离自己地理位置较近的服务器，以降低延迟；同时，确保服务器带宽足够大，以提供更稳定的连接。</p>
+<h3 data-start="2702" data-end="2730" class="">3. vmess 和 ssr 的使用场景有哪些？</h3>
+<p data-start="2732" data-end="2801" class="">这两种协议广泛应用于科学上网、访问被屏蔽的国外网站、保护用户隐私、绕过网络审查等场景。具体使用哪种协议，需要根据您的网络环境和需求来决定。</p>
+<h2 data-start="2803" data-end="2808" class="">结论</h2>
+<p data-start="2810" data-end="2942" class="">vmess 和 ssr 都是优秀的网络代理协议，各自具有不同的优势。vmess 更适合那些对安全性、性能有较高要求的用户，而 ssr 则以简单易用、配置方便著称，适合新手和普通用户。在选择协议时，用户应根据自己的具体需求进行选择，确保获得最佳的网络体验和安全保护。</p>
+<p data-start="2944" data-end="3036" class="">在不断发展的互联网环境中，了解并正确使用代理协议不仅能提高网络效率，还能更好地保护您的隐私安全。无论您选择 vmess 还是 ssr，最重要的是始终关注网络安全，确保个人信息不受侵犯。</p></div>
+<div class="clearfix"></div>
+<div class="col-md-12 mt-5">
+        <p>上一个：<a href="/news/article-193643.htm">深入解析v2rayng的ID：从概念到实践的全方位指南</a></p>
+        <p>下一个：<a href="/news/article-194453.htm">小火箭Shadowrocket节点全攻略：解锁网络自由的终极指南</a></p>
+    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-178773.htm" title="制霸赛道：《F1 Clash》全方位进阶指南与高阶战术解析">制霸赛道：《F1 Clash》全方位进阶指南与高阶战术解析</a></li>
+                        <li class="py-2"><a href="/news/article-177600.htm" title="深度探索Clash安卓直连模式：从配置技巧到实战应用全指南">深度探索Clash安卓直连模式：从配置技巧到实战应用全指南</a></li>
+                        <li class="py-2"><a href="/news/article-180746.htm" title="突破网络限制：Chrome浏览器无障碍访问全球资源的终极指南">突破网络限制：Chrome浏览器无障碍访问全球资源的终极指南</a></li>
+                        <li class="py-2"><a href="/news/article-185249.htm" title="梅林科学上网全攻略：从入门到精通的深度解析">梅林科学上网全攻略：从入门到精通的深度解析</a></li>
+                        <li class="py-2"><a href="/news/article-187165.htm" title="解锁全球网络自由：谷歌浏览器科学上网全攻略">解锁全球网络自由：谷歌浏览器科学上网全攻略</a></li>
+                        <li class="py-2"><a href="/news/article-184757.htm" title="掌握数字自由：安卓设备上v2rayNG的完整安装与配置指南">掌握数字自由：安卓设备上v2rayNG的完整安装与配置指南</a></li>
+                        <li class="py-2"><a href="/news/article-186352.htm" title="解锁网络自由：全面解析电脑连接V2Ray的多种方式与实用技巧">解锁网络自由：全面解析电脑连接V2Ray的多种方式与实用技巧</a></li>
+                        <li class="py-2"><a href="/news/article-176030.htm" title="智能网络代理的未来：LSTM如何赋能V2ray实现自适应优化">智能网络代理的未来：LSTM如何赋能V2ray实现自适应优化</a></li>
+                        <li class="py-2"><a href="/news/article-181150.htm" title="深度解析：Mac用户如何彻底解决ShadowRocket无法上网的难题">深度解析：Mac用户如何彻底解决ShadowRocket无法上网的难题</a></li>
+                        <li class="py-2"><a href="/news/article-194047.htm" title="深入探讨 vmess 与 ssr：网络代理协议的全面比较与应用">深入探讨 vmess 与 ssr：网络代理协议的全面比较与应用</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+        <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">
+                                            <p>本站内容仅供学习与技术研究用途，无意传播或倡导任何违反法律法规的行为。在此声明：用户须自行了解所在地法律法规，合法合规使用；因使用不当产生的法律责任，与本站及作者无关；请在使用前仔细阅读本声明，继续使用即视为同意以上条款。</p>
+                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                            Nekobox Android免费节点分享站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/popper.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/owl-carousel.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/scrollreveal.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nekoboxandroid/imgfix.min.js"></script>
+    <!-- Global Init -->
+    <script src="/assets/website/js/frontend/nekoboxandroid/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
